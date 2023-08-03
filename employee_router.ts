@@ -5,50 +5,43 @@ import express from "express";
 const employeeRouter = express.Router();
 
 import Employee from "./employee";
-//import { Client } from 'pg'
-import { DataSource } from "typeorm";
+import { DataSource,FindOptionsWhere,Like } from "typeorm";
 import { SnakeNamingStrategy } from "typeorm-naming-strategies";
 import dataSource from "./data-source";
 
-// const client = new Client({
-//     host: 'localhost',
-//     port: 8765,
-//     database: 'training',
-//     user: 'postgres',
-//     password: 'postgres',
-// }
-
-// )
 
 
 
 
-// await dataSource.initialize();
-
-let count = 2;
-
-const employees: Employee[] = [{
-    id: 1,
-    name: "mariya",
-    email: "martho@gmail.com",
-    createdAt: new Date(),
-    updatedAt: new Date()
-},
-{
-    id: 2,
-    name: "linette",
-    email: "linu@gmail.com",
-    createdAt: new Date(),
-    updatedAt: new Date()
-},
-]
 
 
 employeeRouter.get('/', async(req, res) => {
     console.log("at / get ");
     console.log(req.url);
+    const nameFilter = req.query.name;
+    const emailFilter = req.query.email;
+    console.log(nameFilter as string);
+
+
     const employeeRepository = dataSource.getRepository(Employee);
-    const employee = await employeeRepository.find();
+
+
+    const querybuilder = employeeRepository.createQueryBuilder();
+    if(nameFilter)
+    querybuilder.andWhere("name LIKE :name",{name: `%${nameFilter as string}%`});
+    if(emailFilter)
+    querybuilder.andWhere("email LIKE :email",{email: `%${emailFilter as string}%`});
+    
+    
+    const employee=await querybuilder.getMany();
+    // const filters : FindOptionsWhere<Employee>= {};
+    // if(nameFilter){
+    //     filters.name = Like("%" + nameFilter as string +"%");
+    // }
+
+    // const employee = await employeeRepository.find({
+    //     where:filters
+    // });
     
     res.status(200).send(employee);
 });
@@ -58,11 +51,7 @@ employeeRouter.get('/:id', async (req, res) => {
     console.log(req.url);
     const employeeRepository = dataSource.getRepository(Employee);
     const employee = await employeeRepository.findOneBy({id:Number(req.params.id)})
-    // const result = await dataSource.query('SELECT * from employees where id = $1', [req.params.id])
-    // console.log(result.rows[0]);
-    // // const employee = result.rows[0];
     res.status(200).send(employee);
-    // await dataSource.end();
 
 });
 
@@ -99,20 +88,13 @@ employeeRouter.put('/:id', async(req, res) => {
 employeeRouter.delete('/:id', async(req, res) => {
     console.log("at / delete");
     console.log(req.url);
-    // const employeeid = employees.findIndex((employee) =>
-    //     employee.id === Number(req.params.id))
-    // console.log(employeeid);
-    // employees.splice(employeeid, 1);
-
-
-
     const employeeRepository = dataSource.getRepository(Employee);
     const employee = await employeeRepository.findOneBy({id:Number(req.params.id)})
 
-    const delEmployee = await employeeRepository.remove(employee)
+    const delEmployee = await employeeRepository.softRemove(employee)
 
     res.status(200).send(` employee with ${req.params.id} deleted`);
 });
 
 
-export { employeeRouter, employees };
+export { employeeRouter };
