@@ -13,11 +13,13 @@
 
 
 import "reflect-metadata"
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 
-import {employeeRouter} from "./employee_router";
-import loggerMiddleware from "./loggerMiddleware";
-import dataSource from "./data-source";
+import employeeRouter from "./route/employee.route";
+import loggerMiddleware from "./middleware/logger.middleware";
+import dataSource from "./db/postgress.db";
+import HttpException from "./exception/http.exception";
+import errorMiddleware from "./middleware/error.middleware";
 
 const server = express();
 server.use(express.json());
@@ -29,6 +31,10 @@ server.get('/', (req, res) => {
     console.log("at /");
     res.status(200).send("hello world typescript");
 });
+
+server.use(errorMiddleware);
+
+
 
 (async()=>{
     await dataSource.initialize();
