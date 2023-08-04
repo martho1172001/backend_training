@@ -2,6 +2,12 @@ import Address from "../entity/address.entity";
 import Employee from "../entity/employee.entity";
 import HttpException from "../exception/http.exception";
 import EmployeeRepository from "../repository/employee.repository";
+import bcrypt from "bcrypt";
+import jsonwebtoken from "jsonwebtoken";
+import { Role } from "../utils/role.enum";
+import CreateEmployeeDto from "../dto/create-employee.dto";
+import UpdateEmployeeDto from "../dto/update-employee.dto";
+
 
 class EmployeeService{
     
@@ -21,14 +27,16 @@ async getEmployeeByID(id:number): Promise<Employee |null> {
     }
     return employee;
 }
-createAnEmployee(name:string,email:string,age:number,address:any): Promise<Employee |null>{
+    async createAnEmployee(createEmployeeDTo:CreateEmployeeDto): Promise<Employee |null>{
     const newEmployee = new Employee();
-    newEmployee.name = name;
-    newEmployee.email = email;
-    newEmployee.age = age;
+    newEmployee.name = createEmployeeDTo.name;
+    newEmployee.email = createEmployeeDTo.email;
+    newEmployee.age = createEmployeeDTo.age;
+    newEmployee.password = await bcrypt.hash(createEmployeeDTo.password,10);
+    newEmployee.role = createEmployeeDTo.role;
     const newAddress = new Address;
-    newAddress.line1=address.line1;
-    newAddress.pincode= address.pincode;
+    newAddress.line1=createEmployeeDTo.address.line1;
+    newAddress.pincode= createEmployeeDTo.address.pincode;
     newEmployee.address=newAddress;
     return this.employeeRepository.save(newEmployee);
 }
@@ -36,18 +44,44 @@ deleteEmployee(employee:Employee) {
     console.log(this.employeeRepository.softRemove(employee));
 }
 
-updateEmployee(name:string ,email:string,address:any,updatedEmployee:Employee):Promise<Employee |null>{
+updateEmployee(updateEmployeeDTo:UpdateEmployeeDto,updatedEmployee:Employee):Promise<Employee |null>{
    
-    updatedEmployee.name = name;
-    updatedEmployee.email = email;
+    updatedEmployee.name = updateEmployeeDTo.name;
+    updatedEmployee.email = updateEmployeeDTo.email;
     updatedEmployee.updatedAt=new Date();
-    updatedEmployee.address.line1=address.line1;
-    updatedEmployee.address.pincode= address.pincode;
+    updatedEmployee.address.line1=updateEmployeeDTo.address.line1;
+    updatedEmployee.address.pincode= updateEmployeeDTo.address.pincode;
     updatedEmployee.address.updatedAt=new Date();
     return this.employeeRepository.save(updatedEmployee);
 }
 
+loginEmployee=async(email:string,password:string)=>{
+   const employee=await this.employeeRepository.findOneByEmail(email);
+   if(!employee){
+    throw new HttpException(400,"Username not found");
+   }
+
+  const result= await bcrypt.compare(password, employee.password);
+  if(!result){
+    throw new HttpException(400,"Invalid login credentials");
+  
+  }
+
+  const payload={
+    name:employee.name,
+    email:employee.email,
+    role:employee.role
+  }
+  const token=jsonwebtoken.sign(payload,process.env.JWT_SECRETKEY,{
+    expiresIn:process.env.JWT_EXPIRY
+  });
+return {token:token};
+
 }
+
+}
+
+
 
 
 

@@ -1,7 +1,8 @@
-import { IsEmail, IsNotEmpty, IsNumber, IsString, ValidateNested} from "class-validator";
+import { IsEmail, IsEnum, IsNotEmpty, IsNumber, IsString, ValidateNested} from "class-validator";
 import Address from "../entity/address.entity";
 import { Type } from "class-transformer";
 import CreateAddressDto from "./create-address.dto";
+import { Role } from "../utils/role.enum";
 
 
 
@@ -18,6 +19,14 @@ email:string;
 @IsNotEmpty()
 @IsNumber()
 age:number;
+
+@IsNotEmpty()
+@IsString()
+password:string;
+
+@IsNotEmpty()
+@IsEnum(Role)
+role:Role;
 
 @IsNotEmpty()
 @ValidateNested({each:true})

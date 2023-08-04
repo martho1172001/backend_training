@@ -1,31 +1,36 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import Address from "./address.entity";
+import Department from "./department.entity";
+import AbstractEntity from "./abstract.entity";
+import { Role } from "../utils/role.enum";
 
 @Entity("employees")
-class Employee{
-    @PrimaryGeneratedColumn()
-    id:number;
+class Employee extends AbstractEntity {
 
     @Column()
-    name:string;
+    name: string;
 
     @Column()
-    email:string;
+    email: string;
 
-    @Column({nullable:true})
-    age:number;
+    @Column()
+    password: string;
 
-    @CreateDateColumn()
-    createdAt: Date;
+    @Column({ nullable: true })
+    age: number;
+     
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+    @Column({default: Role.DEVELOPER})
+    role:Role;
 
-    @DeleteDateColumn()
-    deletedAt: Date;
+    @OneToOne(() => Address, (address) => address.employee, { cascade: true, onDelete: "CASCADE" })
+    address: Address;
 
-    @OneToOne(()=>Address,(address)=>address.employee,{cascade:true})
-    address:Address;
+
+    @ManyToOne(() => Department, (department) => department.employee, { cascade: true })
+    @JoinColumn()
+    department: Department;
+
 
 }
 

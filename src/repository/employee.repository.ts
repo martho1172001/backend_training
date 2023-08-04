@@ -24,6 +24,14 @@ class EmployeeRepository {
             }
         });
     }
+    findOneByEmail(email:string):Promise<Employee> {
+        return this.employeeRepository.findOne({
+            where: {email:email},
+            relations:{
+           address:true,
+            }
+        });
+    }
 
     save(newEmployee: Employee):Promise<Employee>{
         return this.employeeRepository.save(newEmployee);

@@ -14,18 +14,22 @@
 
 import "reflect-metadata"
 import express, { NextFunction, Request, Response } from "express";
+import * as dotenv from "dotenv";
+dotenv.config({path:__dirname+'/.env'});
 
 import employeeRouter from "./route/employee.route";
 import loggerMiddleware from "./middleware/logger.middleware";
 import dataSource from "./db/postgress.db";
 import HttpException from "./exception/http.exception";
 import errorMiddleware from "./middleware/error.middleware";
+import departmentRouter from "./route/department.route";
 
 const server = express();
 server.use(express.json());
 server.use(loggerMiddleware);
 
 server.use("/employees", employeeRouter);
+//server.use("/department",departmentRouter)
 
 server.get('/', (req, res) => {
     console.log("at /");

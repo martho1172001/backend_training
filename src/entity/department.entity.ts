@@ -1,9 +1,10 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import Employee from "./employee.entity";
+import AbstractEntity from "./abstract.entity";
 
 @Entity()
-class Department {
-    @PrimaryGeneratedColumn()
-    id: number;
+class Department  extends AbstractEntity {
+
 
     @Column()
     name: string;
@@ -11,16 +12,9 @@ class Department {
     @Column()
     location: string;
 
-    @CreateDateColumn()
-    createdAt:Date;
-    
-    @UpdateDateColumn()
-    updatedAt:Date;
 
-    @DeleteDateColumn()
-    deletedAt:Date;
-
-    
+    @OneToMany(()=>Employee,(employee)=>employee.department)
+    employee:Employee;
     
 
 }
