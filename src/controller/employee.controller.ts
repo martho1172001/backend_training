@@ -29,6 +29,7 @@ class EmployeeController {
     public createAnEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
         try {
             const name = req.body.name;
+            const age = req.body.age;
             const email = req.body.email;
             const address = req.body.address;
             const createEmployeeDto = plainToInstance(CreateEmployeeDto, req.body);
@@ -42,7 +43,7 @@ class EmployeeController {
 
             }
             else{
-            const savedEmployee = await this.employeeService.createAnEmployee(name, email, address);
+            const savedEmployee = await this.employeeService.createAnEmployee(name, email,age, address);
             res.status(200).send(savedEmployee);}
         }
         catch (error) {

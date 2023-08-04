@@ -21,10 +21,11 @@ async getEmployeeByID(id:number): Promise<Employee |null> {
     }
     return employee;
 }
-createAnEmployee(name:string,email:string,address:any): Promise<Employee |null>{
+createAnEmployee(name:string,email:string,age:number,address:any): Promise<Employee |null>{
     const newEmployee = new Employee();
     newEmployee.name = name;
     newEmployee.email = email;
+    newEmployee.age = age;
     const newAddress = new Address;
     newAddress.line1=address.line1;
     newAddress.pincode= address.pincode;

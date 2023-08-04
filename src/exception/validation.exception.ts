@@ -15,11 +15,11 @@ class HttpExceptionHandle extends HttpException {
             const errorField = element.property;
             if (element.children.length > 0) {
                 formattedErrorObject[errorField] = this.formatValidationError(element.children);
-                return formattedErrorObject;
+               // return formattedErrorObject;
             }
             else {
                 formattedErrorObject[errorField] = Object.values(element.constraints);
-                return formattedErrorObject;
+              //  return formattedErrorObject;
             }
         })
         return formattedErrorObject;
