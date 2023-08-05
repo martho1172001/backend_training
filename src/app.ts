@@ -10,26 +10,32 @@
 // myCalculator.modulus(200,3);
 // myCalculator.percentage(20,3);
 
-
+import * as dotenv from "dotenv";
+dotenv.config({path:__dirname+'/.env'});
 
 import "reflect-metadata"
 import express, { NextFunction, Request, Response } from "express";
-import * as dotenv from "dotenv";
-dotenv.config({path:__dirname+'/.env'});
+
 
 import employeeRouter from "./route/employee.route";
 import loggerMiddleware from "./middleware/logger.middleware";
 import dataSource from "./db/postgress.db";
 import HttpException from "./exception/http.exception";
 import errorMiddleware from "./middleware/error.middleware";
-import departmentRouter from "./route/department.route";
+import {departmentRouter} from "./route/department.route";
+import roleRouter from "./route/role.route";
 
 const server = express();
 server.use(express.json());
 server.use(loggerMiddleware);
 
+
+
 server.use("/employees", employeeRouter);
-//server.use("/department",departmentRouter)
+server.use("/departments",departmentRouter);
+server.use("/roles",roleRouter)
+
+
 
 server.get('/', (req, res) => {
     console.log("at /");
@@ -42,8 +48,8 @@ server.use(errorMiddleware);
 
 (async()=>{
     await dataSource.initialize();
-    server.listen(3000, () => {
-        console.log("server is listening to port 3000");
+    server.listen(3001, () => {
+        console.log("server is listening to port 3001");
     });
 })();
 

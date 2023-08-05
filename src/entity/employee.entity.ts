@@ -16,21 +16,29 @@ class Employee extends AbstractEntity {
     @Column()
     password: string;
 
-    @Column({ nullable: true })
+    // @Column()
+    // joiningDate:Date;
+    // @Column()
+    // isActive:boolean;
+
+    @Column()
     age: number;
+
      
 
     @Column({default: Role.DEVELOPER})
     role:Role;
-
+  
     @OneToOne(() => Address, (address) => address.employee, { cascade: true, onDelete: "CASCADE" })
     address: Address;
 
 
-    @ManyToOne(() => Department, (department) => department.employee, { cascade: true })
+    @ManyToOne(() => Department, (department) => department.employee)
     @JoinColumn()
     department: Department;
 
+
+   
 
 }
 

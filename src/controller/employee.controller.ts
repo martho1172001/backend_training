@@ -9,6 +9,11 @@ import HttpException from "../exception/http.exception";
 import HttpExceptionHandle from "../exception/validation.exception";
 import authenticate from "../middleware/authenticate.middleware";
 import authorize from "../middleware/authorize.middleware";
+import LoginDto from "../dto/login-dto";
+import { Role } from "../utils/role.enum";
+import PatchEmployeeDto from "../dto/patch-employee.dto";
+import PatchAddressDto from "../dto/patch-employee-address.dto";
+import employeeRepository from "../repository/employee.repository";
 
 class EmployeeController {
 
@@ -16,13 +21,15 @@ class EmployeeController {
     constructor(private employeeService: EmployeeService) {
         this.router = express.Router();
 
-        this.router.get("/",authenticate,this.getAllEmployees);
-        this.router.get("/:id", this.getEmployeeByID);
-        this.router.post("/", authenticate,authorize, this.createAnEmployee);
+        this.router.get("/", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getAllEmployees);
+        this.router.get("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getEmployeeByID);
+        this.router.post("/", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.createAnEmployee);
 
-        this.router.delete("/:id", this.deleteEmployee);
-        this.router.put("/:id", this.updateEmployee);
-        this.router.post("/login",this.loginEmployee);
+        this.router.delete("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.deleteEmployee);
+        this.router.put("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.updateEmployee);
+        this.router.patch("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.patchEmployee);
+
+        this.router.post("/login", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.loginEmployee);
 
 
 
@@ -31,45 +38,60 @@ class EmployeeController {
 
     public createAnEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
         try {
-            const name = req.body.name;
-            const age = req.body.age;
-            const email = req.body.email;
-            const address = req.body.address;
-            const role = req.body.role;
-            const password: string = req.body.password;
-
             const createEmployeeDto = plainToInstance(CreateEmployeeDto, req.body);
+            console.log(createEmployeeDto);
             const errors = await validate(createEmployeeDto);
-
-
             if (errors.length > 0) {
                 console.log(errors);
                 throw new HttpExceptionHandle(400, "Validation Errors", errors);
-
-
             }
             else {
+
+
                 const savedEmployee = await this.employeeService.createAnEmployee(createEmployeeDto);
-                res.status(200).send(savedEmployee);
+
+                //const employee = await this.employeeService.getAllEmployee(employeeid);
+
+                res.status(200).send({ data: savedEmployee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
             }
         }
         catch (error) {
             next(error);
         }
+    }
 
 
+    public loginEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
+
+        try {
+            const loginDto = plainToInstance(LoginDto, req.body);
+            console.log(loginDto);
+            const errors = await validate(loginDto);
+            if (errors.length > 0) {
+                console.log(errors);
+                throw new HttpExceptionHandle(400, "Validation Errors", errors);
+            } else {
+                const token = await this.employeeService.loginEmployee(loginDto);
+
+                res.status(200).send({ data: token, errors: null, message: "OK", meta: { length: 1, total: 1 } });
+            }
+
+        } catch (error) {
+            next(error)
+        }
 
     }
-    getAllEmployees = async (req: express.Request, res: express.Response) => {
+    public getAllEmployees = async (req: express.Request, res: express.Response) => {
         const employees = await this.employeeService.getAllEmployee();
-        res.status(200).send(employees);
+        res.status(200).send({ data: employees, errors: null, message: "OK", meta: { length: employees.length, total: employees.length } });
     }
+
     public getEmployeeByID = async (req: express.Request, res: express.Response, next: NextFunction) => {
         try {
             const employeeid = Number(req.params.id);
             const employee = await this.employeeService.getEmployeeByID(employeeid);
             console.log(employee);
-            res.status(200).send(employee);
+            res.status(200).send({ data: employee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
         }
         catch (error) {
             next(error);
@@ -88,8 +110,8 @@ class EmployeeController {
                 throw new HttpExceptionHandle(400, "Validation Errors", errors);
             }
             else {
-                const updatedEmployee = await this.employeeService.updateEmployee(updateEmployeeDto,employee);
-                res.status(200).send(updatedEmployee);
+                const updatedEmployee = await this.employeeService.updateEmployee(updateEmployeeDto, employee);
+                res.status(200).send({ data: updatedEmployee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
             }
         }
         catch (error) {
@@ -97,6 +119,35 @@ class EmployeeController {
         }
 
     }
+
+
+    public patchEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
+        const patchEmployeeDto = plainToInstance(PatchEmployeeDto, req.body);
+        const employeeid = Number(req.params.id);
+        const employee = await this.employeeService.getEmployeeByID(employeeid);
+        console.log(employee);
+        const errors = await validate(patchEmployeeDto);
+        if (errors.length > 0) {
+            return res.status(400).json({ message: 'Employee validation error', errors });
+        }
+        await this.employeeService.assign(employee, patchEmployeeDto)
+
+        // Validate and apply the changes to the address object
+        const patchAddressDto = plainToInstance(PatchAddressDto, { ...req.body.address });
+        //      
+        const addressErrors = await validate(patchAddressDto);
+        // const addressErrors = await validate(updateAddressDto);
+        if (addressErrors.length > 0) {
+            return res.status(400).json({ message: 'Address validation error', errors: addressErrors });
+        }
+        await this.employeeService.assign(employee.address, patchAddressDto)
+
+        // Save the updated employee and address
+        console.log(employee, employee.address)
+
+        res.status(200).send({ data: employee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
+    }
+
 
     public deleteEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
 
@@ -113,31 +164,10 @@ class EmployeeController {
 
     }
 
-    public loginEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
-        const { email, password } = req.body;
-        try {
-            const token = await this.employeeService.loginEmployee(email,password);
-            res.status(200).send({data:token});
-
-        } catch (error) {
-            next(error)
-        }
-
-    }
 
 
 
 }
-//    updateEmployee= async(req:express.Request,res:express.Response)=>{
-
-//     const name = req.body.name;
-//     const email = req.body.email;
-//     const id = req.params.id
-//     const savedEmployee = await this.employeeService.updateEmployee(id,name,email);
-//     res.status(200).send(savedEmployee);
-
-
-//     }
 
 
 export default EmployeeController;

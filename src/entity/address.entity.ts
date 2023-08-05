@@ -6,10 +6,18 @@ import AbstractEntity from "./abstract.entity";
 class Address extends AbstractEntity {
     
 
-    @Column()
+    @Column({nullable:true})
     line1:string;
+    // @Column()
+    // address_line_2:string;
+    // @Column()
+    // city:string;
+    // @Column()
+    // state:string;
+    // @Column()
+    // country:string;
 
-    @Column()
+    @Column({nullable:true})
     pincode:string;
 
 

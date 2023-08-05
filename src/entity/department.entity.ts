@@ -9,9 +9,7 @@ class Department  extends AbstractEntity {
     @Column()
     name: string;
 
-    @Column()
-    location: string;
-
+    
 
     @OneToMany(()=>Employee,(employee)=>employee.department)
     employee:Employee;

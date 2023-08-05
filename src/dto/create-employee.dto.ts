@@ -1,8 +1,10 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsNumber, IsString, ValidateNested} from "class-validator";
 import Address from "../entity/address.entity";
 import { Type } from "class-transformer";
-import CreateAddressDto from "./create-address.dto";
+import CreateAddressDto from "./create-employee-address.dto";
 import { Role } from "../utils/role.enum";
+import { Column } from "typeorm";
+import Department from "../entity/department.entity";
 
 
 
@@ -27,6 +29,10 @@ password:string;
 @IsNotEmpty()
 @IsEnum(Role)
 role:Role;
+
+
+@Column()
+departmentId:number;
 
 @IsNotEmpty()
 @ValidateNested({each:true})
