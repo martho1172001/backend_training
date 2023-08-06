@@ -1,2 +1,13 @@
 2023-08-06T15:37:47.196Z [KV_EmployeePortal] info: [dae93446-e510-4d6b-adf0-9e7ebd57ec53] /employees/1 : GET : New Request 
 2023-08-06T15:37:47.225Z [KV_EmployeePortal] info: [dae93446-e510-4d6b-adf0-9e7ebd57ec53] /employees/1 : GET : Request completed 
+2023-08-06T17:44:41.484Z [KV_EmployeePortal] info: [1a816760-0800-4113-8712-4398fff3373c] /employees/1 : GET : New Request 
+2023-08-06T17:44:41.506Z [KV_EmployeePortal] info: [1a816760-0800-4113-8712-4398fff3373c] /employees/1 : GET : Retrieval of details of employee with id 1 successful 
+2023-08-06T17:44:41.506Z [KV_EmployeePortal] info: [1a816760-0800-4113-8712-4398fff3373c] /employees/1 : GET : Request completed 
+2023-08-06T17:44:49.838Z [KV_EmployeePortal] info: [648daf80-e794-4c0a-b672-fca0367c5277] /employees/ : GET : New Request 
+2023-08-06T17:44:49.844Z [KV_EmployeePortal] info: [648daf80-e794-4c0a-b672-fca0367c5277] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-06T17:44:49.844Z [KV_EmployeePortal] info: [648daf80-e794-4c0a-b672-fca0367c5277] /employees/ : GET : Request completed 
+2023-08-06T17:45:11.062Z [KV_EmployeePortal] info: [06444954-3a5b-4c24-9930-09e42cf9fa14] /departments/ : GET : New Request 
+2023-08-06T17:45:11.081Z [KV_EmployeePortal] info: [06444954-3a5b-4c24-9930-09e42cf9fa14] /departments/ : GET : All department details  retrieved successfully
+2023-08-06T17:45:11.082Z [KV_EmployeePortal] info: [06444954-3a5b-4c24-9930-09e42cf9fa14] /departments/ : GET : Request completed 
+2023-08-06T17:45:18.131Z [KV_EmployeePortal] info: [fae8df8a-0f38-4849-b780-32e6bcbac74e] /departments/100 : GET : New Request 
+2023-08-06T17:45:18.134Z [KV_EmployeePortal] warn: [fae8df8a-0f38-4849-b780-32e6bcbac74e] /departments/100 : GET : Unsuccessful department retrieval: department with id 100 not found

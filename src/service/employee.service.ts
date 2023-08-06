@@ -13,6 +13,7 @@ import LoginDto from "../dto/login-dto";
 import PatchEmployeeDto from "../dto/patch-employee.dto";
 import PatchAddressDto from "../dto/patch-employee-address.dto";
 import { plainToInstance } from "class-transformer";
+import logger from "../logging/winston.log";
 
 
 class EmployeeService{
@@ -24,22 +25,28 @@ getAllEmployee(): Promise<Employee[]>{
     return this.employeeRepository.getEmployeesOnlyWithDepartmentId();
 }
 
-async getEmployeeByID(id:number): Promise<Employee |null> {
+async getEmployeeByID(id:number,logStart:string): Promise<Employee |null> {
     const employee= await this.employeeRepository.getEmployeeWithDepartmentIdUsingID(id);
     if(!employee) {
+        logger.warn(`${logStart} Unsuccessful employee retrieval: employee with id ${id} not found`);
+       
         throw new HttpException(400,`Employee not found with id : ${id}`);
         
 
     }
     return employee;
 }
-    async createAnEmployee(createEmployeeDTo:CreateEmployeeDto): Promise<any |null>{
-        const department = await this.departmentService.getDepartmentByID(createEmployeeDTo.departmentId);
+    async createAnEmployee(createEmployeeDTo:CreateEmployeeDto,logStart:string): Promise<any |null>{
+        const department = await this.departmentService.getDepartmentByID(createEmployeeDTo.departmentId,logStart);
     if (!department) {
+        logger.warn(`${logStart} Unsuccessful employee creation: department with id ${createEmployeeDTo.departmentId} not found`);
+       
       throw new HttpException(400,`Department with id ${createEmployeeDTo.departmentId} does not exist`); // Handle if the department does not exist
     }
     const alreadyExists = await this.employeeRepository.findOneByusername(createEmployeeDTo.username);
     if (alreadyExists) {
+        logger.warn(`${logStart} Unsuccessful employee creation: username already exists`);
+       
       throw new HttpException(400,`The username/username already exists`); 
     }
 
@@ -59,12 +66,9 @@ async getEmployeeByID(id:number): Promise<Employee |null> {
     newAddress.state= createEmployeeDTo.address.state;
     newAddress.pincode= createEmployeeDTo.address.pincode;
     newEmployee.address=newAddress;
-    
-    
-  
-    // Set the department for the employee
     newEmployee.department = department;
     await this.employeeRepository.save(newEmployee);
+
     const employee = await this.employeeRepository.getEmployeeWithDepartmentIdUsingusername(newEmployee.username)
     
     return employee;
@@ -97,9 +101,11 @@ assign=async(employee,patchDto)=>{
         return employee;
 }
 
-loginEmployee=async(loginDto:LoginDto)=>{
+loginEmployee=async(loginDto:LoginDto,logStart:string)=>{
    const employee=await this.employeeRepository.findOneByusername(loginDto.username);
    if(!employee){
+    logger.warn(`${logStart} Unsuccessful login: Username not found`);
+      
     throw new HttpException(400,"Username not found");
    }
    employee.isActive=true;
@@ -108,6 +114,8 @@ loginEmployee=async(loginDto:LoginDto)=>{
 
   const result= await bcrypt.compare(loginDto.password, employee.password);
   if(!result){
+    logger.warn(`${logStart} Unsuccessful login:Invalid login credentials `);
+     
     throw new HttpException(400,"Invalid login credentials");
   
   }

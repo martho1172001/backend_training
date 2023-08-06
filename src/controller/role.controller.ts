@@ -16,9 +16,10 @@ class RoleController{
 
 getRoles=async (req: RequestWithUser, res: express.Response, next: NextFunction)=>{
     const start= Number(req.startTime);
-   
-    const roles= this.roleService.getRoles();
     const logStart = `[${req.traceId}] /roles${req.url} : ${req.method} :`;
+    const roles= this.roleService.getRoles(logStart);
+
+    logger.info(`${logStart} Roles retrieval successful `);
     logger.info(`${logStart} Request completed `);  
     res.status(200).send({data:roles,errors:null,message:"OK",meta:{length:roles.length,took: Date.now()-start,total:roles.length}});
            

@@ -3,6 +3,7 @@ import UpdateDepartmentDto from "../dto/update-department.dto";
 import Department from "../entity/department.entity";
 import Employee from "../entity/employee.entity";
 import HttpException from "../exception/http.exception";
+import logger from "../logging/winston.log";
 import DepartmentRepository from "../repository/department.repository";
 
 
@@ -12,12 +13,16 @@ class DepartmentService{
     }
 
     async getAllDepartment():Promise<Department[]>{
+
+        
      return await  this.departmentRepository.find();
     }
 
-    async getDepartmentByID(id:number): Promise<Department |null> {
+    async getDepartmentByID(id:number,logStart:string): Promise<Department |null> {
         const department= await this.departmentRepository.findOneBy(id);
         if(!department) {
+
+        logger.warn(`${logStart} Unsuccessful department retrieval: department with id ${id} not found`);
             throw new HttpException(400,`Department not found with id : ${id}`);
         }
         return department;
@@ -31,7 +36,7 @@ class DepartmentService{
 
 
 
-    deleteDepartment=async(department:Department) =>{
+    deleteDepartment=async(department:Department,logStart:string) =>{
         return this.departmentRepository.softRemove(department);
     }
   

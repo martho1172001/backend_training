@@ -6,7 +6,6 @@ import { validate } from "class-validator";
 import LoginDto from "../dto/login-dto";
 import CreateDepartmentDto from "../dto/create-department.dto";
 import UpdateDepartmentDto from "../dto/update-department.dto";
-//import authorize from "../middleware/authorize.middleware";
 import { Role } from "../utils/role.enum";
 import authorize from "../middleware/authorize.middleware";
 import authenticate from "../middleware/authenticate.middleware";
@@ -17,31 +16,34 @@ class DepartmentController {
     public router: express.Router;
     constructor(private departmentService: DepartmentService) {
         this.router = express.Router();
-        this.router.get("/",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]), this.getAllDepartments)
-        this.router.post("/",authenticate,authorize([Role.HR]), this.createDepartment)
+        this.router.get("/", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getAllDepartments)
+        this.router.post("/", authenticate, authorize([Role.HR]), this.createDepartment)
 
-        this.router.get("/:id",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]), this.getDepartmentById)
-        this.router.delete("/:id",authenticate,authorize([Role.HR]), this.deleteDepartment);
+        this.router.get("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getDepartmentById)
+        this.router.delete("/:id", authenticate, authorize([Role.HR]), this.deleteDepartment);
 
-        this.router.put("/:id",authenticate,authorize([Role.HR]), this.updateDepartment);
-        
+        this.router.put("/:id", authenticate, authorize([Role.HR]), this.updateDepartment);
+
 
     }
-    public createDepartment= async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
+    public createDepartment = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
+        const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
         try {
             const createDepartmentDto = plainToInstance(CreateDepartmentDto, req.body);
             console.log(createDepartmentDto);
             const errors = await validate(createDepartmentDto);
             if (errors.length > 0) {
                 console.log(errors);
+                logger.warn(`${logStart} Create department details  validation errors"`);
                 throw new HttpExceptionHandle(400, "Validation Errors", errors);
             }
             else {
                 const savedDepartment = await this.departmentService.createDepartment(createDepartmentDto);
-                const start= Number(req.startTime);
-                const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Depaartment with name ${createDepartmentDto.name} created succesfully `);
+                const start = Number(req.startTime);
+
                 logger.info(`${logStart} Request completed `);
-                res.status(200).send({data:savedDepartment,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
+                res.status(200).send({ data: savedDepartment, errors: null, message: "OK", meta: { length: 1, took: Date.now() - start, total: 1 } });
             }
         }
         catch (error) {
@@ -51,22 +53,25 @@ class DepartmentController {
 
     public getAllDepartments = async (req: RequestWithUser, res: express.Response) => {
 
-
-        const departments = await this.departmentService.getAllDepartment();
-        const start= Number(req.startTime);
         const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
-                logger.info(`${logStart} Request completed `);
-        res.status(200).send({data:departments,errors:null,message:"OK",meta:{length:departments.length,took: Date.now()-start,total:departments.length}});
+        const departments = await this.departmentService.getAllDepartment();
+        logger.info(`${logStart} All department details  retrieved successfully`);
+        const start = Number(req.startTime);
+
+        logger.info(`${logStart} Request completed `);
+        res.status(200).send({ data: departments, errors: null, message: "OK", meta: { length: departments.length, took: Date.now() - start, total: departments.length } });
     }
 
     public getDepartmentById = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
-        const start= Number(req.startTime);
+        const start = Number(req.startTime);
+        const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
         try {
             const id = Number(req.params.id);
-            const department = await this.departmentService.getDepartmentByID(id);
-            const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
-                logger.info(`${logStart} Request completed `);
-            res.status(200).send({data:department,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
+            const department = await this.departmentService.getDepartmentByID(id,logStart);
+            logger.info(`${logStart} Retrieval of department with id ${id} successful `);
+
+            logger.info(`${logStart} Request completed `);
+            res.status(200).send({ data: department, errors: null, message: "OK", meta: { length: 1, took: Date.now() - start, total: 1 } });
         }
         catch (error) {
             next(error);
@@ -75,17 +80,19 @@ class DepartmentController {
     }
 
     public deleteDepartment = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
-        const start= Number(req.startTime);
-
+        const start = Number(req.startTime);
+        const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
         try {
             const departmentid = Number(req.params.id);
-            const department = await this.departmentService.getDepartmentByID(departmentid);
+            const department = await this.departmentService.getDepartmentByID(departmentid,logStart);
+            logger.info(`${logStart} Retrieval of department with id ${departmentid} successful `);
             console.log(department);
-            const deletedDepartment= await this.departmentService.deleteDepartment(department);
-            const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
-                logger.info(`${logStart} Request completed `);
-      
-            res.status(200).send({data:deletedDepartment,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
+            const deletedDepartment = await this.departmentService.deleteDepartment(department,logStart);
+            logger.info(`${logStart} Deletion of department with id ${departmentid} successful `);
+          
+            logger.info(`${logStart} Request completed `);
+
+            res.status(200).send({ data: deletedDepartment, errors: null, message: "OK", meta: { length: 1, took: Date.now() - start, total: 1 } });
         }
         catch (error) {
             next(error);
@@ -93,24 +100,27 @@ class DepartmentController {
 
     }
     public updateDepartment = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
-        const start= Number(req.startTime);
-
+        const start = Number(req.startTime);
+        const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+               
         try {
             const departmentid = Number(req.params.id);
-            const department = await this.departmentService.getDepartmentByID(departmentid);
+            const department = await this.departmentService.getDepartmentByID(departmentid,logStart);
+            logger.info(`${logStart} Retrieval of department with id ${departmentid} successful `);
             console.log(department);
             const updateDepartmentDto = plainToInstance(UpdateDepartmentDto, req.body);
             const errors = await validate(updateDepartmentDto);
             if (errors.length > 0) {
+                logger.warn(`${logStart} Update department details  validation errors"`);
                 throw new HttpExceptionHandle(400, "Validation Errors", errors);
             }
             else {
-                const updatedDepartment = await this.departmentService.updateDepartment(updateDepartmentDto,department);
-                const start= Number(req.startTime);
-                const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+                const updatedDepartment = await this.departmentService.updateDepartment(updateDepartmentDto, department);
+                logger.info(`${logStart} Updation of department with id ${departmentid} successful `);
+                const start = Number(req.startTime);
                 logger.info(`${logStart} Request completed `);
-      
-                res.status(200).send({data:updatedDepartment,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
+
+                res.status(200).send({ data: updatedDepartment, errors: null, message: "OK", meta: { length: 1, took: Date.now() - start, total: 1 } });
             }
         }
         catch (error) {

@@ -51,11 +51,16 @@ server.use(errorMiddleware);
 
 
 (async()=>{
+    try{
     await dataSource.initialize();
     server.listen(4000, () => {
         console.log("server is listening to port 4000");
     });
-})();
+}catch{
+    logger.error(`Server down!!`);
+
+
+}})();
 
 
 
