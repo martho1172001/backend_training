@@ -3,7 +3,6 @@ import Address from "./address.entity";
 import Department from "./department.entity";
 import AbstractEntity from "./abstract.entity";
 import { Role } from "../utils/role.enum";
-import RoleClass from "./role.entity";
 
 @Entity("employees")
 class Employee extends AbstractEntity {
@@ -36,9 +35,7 @@ class Employee extends AbstractEntity {
     @JoinColumn()
     department: Department;
 
-    @ManyToOne(() => RoleClass, (role) => role.employee)
-    @JoinColumn()
-    role_id: RoleClass;
+    
 
 
    
