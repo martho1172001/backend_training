@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested} from "class-validator";
+import { IsDate, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, ValidateNested} from "class-validator";
 import Address from "../entity/address.entity";
 import { Type } from "class-transformer";
 import CreateAddressDto from "./create-employee-address.dto";
@@ -16,12 +16,18 @@ class PatchEmployeeDto{
 name?:string;
 
 @IsOptional()
-@IsEmail()
-email?:string;
+@IsString()
+username?:string;
+
+
 
 @IsOptional()
 @IsNumber()
-age?:number;
+experience?:number;
+
+@IsOptional()
+@IsDate()
+joiningDate?:Date;
 
 @IsOptional()
 @IsString()

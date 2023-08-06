@@ -26,16 +26,12 @@ class DepartmentService{
     async createDepartment(createDepartmentDTo:CreateDepartmentDto): Promise<Department |null>{
         const newDepartment = new Department();
         newDepartment.name = createDepartmentDTo.name;
-        
-        
-        // Set the department for the employee
         return this.departmentRepository.save(newDepartment);
     }
+
+
+
     deleteDepartment=async(department:Department) =>{
-        //console.log(this.departmentRepository.softRemove(department));
-    //     const emp = new Employee;
-    
-    //    const employees 
         return this.departmentRepository.softRemove(department);
     }
   

@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsNumber, IsString, ValidateNested} from "class-validator";
+import { IsEnum, IsNotEmpty, IsNumber, IsString, ValidateNested, IsDate} from "class-validator";
 import Address from "../entity/address.entity";
 import { Type } from "class-transformer";
 import CreateAddressDto from "./create-employee-address.dto";
@@ -15,12 +15,16 @@ name:string;
 
 
 @IsNotEmpty()
-@IsEmail()
-email:string;
+@IsString()
+username:string;
 
 @IsNotEmpty()
 @IsNumber()
-age:number;
+experience:number;
+
+@IsNotEmpty()
+@IsString()
+joiningDate:string;
 
 @IsNotEmpty()
 @IsString()

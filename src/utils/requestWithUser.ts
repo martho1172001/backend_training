@@ -3,6 +3,6 @@ import { Role } from "./role.enum";
 
 export interface RequestWithUser extends Request{
     name:string;
-    email:string;
+    username:string;
     role:Role;
 }

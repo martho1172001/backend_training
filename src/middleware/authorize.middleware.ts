@@ -23,7 +23,8 @@ const authorize = (allowedRoles: Role[]) => async (
     next: NextFunction
   ) => {
     try {
-      const { role } = req;
+    //  const { role } = req;
+    const role = req.role;
       if (!allowedRoles.includes(role)) {
         throw new HttpException(403, 'You have no access');
       }

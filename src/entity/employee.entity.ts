@@ -11,20 +11,18 @@ class Employee extends AbstractEntity {
     name: string;
 
     @Column()
-    email: string;
+    username: string;
 
     @Column()
     password: string;
 
-    // @Column()
-    // joiningDate:Date;
-    // @Column()
-    // isActive:boolean;
+    @Column()
+    joiningDate:Date;
+    @Column({default:false})
+    isActive:boolean;
 
     @Column()
-    age: number;
-
-     
+    experience: number;
 
     @Column({default: Role.DEVELOPER})
     role:Role;

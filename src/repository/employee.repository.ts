@@ -25,9 +25,9 @@ class EmployeeRepository {
       
        return employeesWithOnlyDepartmentId;
       }
-      getEmployeeWithDepartmentIdUsingEmail=async(email)=> {
+      getEmployeeWithDepartmentIdUsingusername=async(username)=> {
         const employeesWithDepartment = await this.employeeRepository.findOne({
-            where:{email:email},
+            where:{username:username},
           relations: ['department','address'], 
           
         });
@@ -43,9 +43,9 @@ class EmployeeRepository {
       
        return employeesWithOnlyDepartmentId;
       }
-      getEmployeeWithOnlyDepartmentIdUisngEmail=async(email)=> {
+      getEmployeeWithOnlyDepartmentIdUsingusername=async(username)=> {
         const employeesWithDepartment = await this.employeeRepository.findOne({
-            where:{email:email},
+            where:{username:username},
           relations: ['department'], 
           
         });
@@ -66,6 +66,9 @@ class EmployeeRepository {
       
        return employeesWithOnlyDepartmentId;
       }
+
+
+
       getEmployeeWithDepartmentIdUsingID=async(id)=> {
         const employeesWithDepartment = await this.employeeRepository.findOne({
             where:{id:id},
@@ -74,24 +77,21 @@ class EmployeeRepository {
         });
 
         if(!employeesWithDepartment) {
-            throw new HttpException(400,`Employee with id ${id}not found `);
-               
+            throw new HttpException(400,`Employee with id ${id}not found `);     
         }
 
       
         const employeesWithOnlyDepartmentId = {
           ...employeesWithDepartment,
           departmentId: employeesWithDepartment.department ? employeesWithDepartment.department.id : null,
-         
-
-          department:undefined
-          
-          
+          department:undefined         
         };
       
        return employeesWithOnlyDepartmentId;
       }
-       
+      
+      
+
     find(): Promise<Employee[]> {
         return this.employeeRepository.find(
             {
@@ -104,6 +104,7 @@ class EmployeeRepository {
         );
     }
 
+
     findOneBy(id:number):Promise<Employee> {
         return this.employeeRepository.findOne({
             where: {id:id},
@@ -112,9 +113,9 @@ class EmployeeRepository {
             }
         });
     }
-    findOneByEmail(email:string):Promise<Employee> {
+    findOneByusername(username:string):Promise<Employee> {
         return this.employeeRepository.findOne({
-            where: {email:email},
+            where: {username:username},
             relations:{
            address:true,
             }
@@ -127,7 +128,7 @@ class EmployeeRepository {
     
     softRemove(employee:Employee){
 
-       console.log(this.employeeRepository.softRemove(employee)+"ffg") ;
+       this.employeeRepository.softRemove(employee) ;
     }
 
 

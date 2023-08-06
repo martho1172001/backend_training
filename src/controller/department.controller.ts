@@ -16,12 +16,12 @@ class DepartmentController {
     constructor(private departmentService: DepartmentService) {
         this.router = express.Router();
         this.router.get("/",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]), this.getAllDepartments)
-        this.router.post("/",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]), this.createDepartment)
+        this.router.post("/",authenticate,authorize([Role.HR]), this.createDepartment)
 
         this.router.get("/:id",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]), this.getDepartmentById)
-        this.router.delete("/:id",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]), this.deleteDepartment);
+        this.router.delete("/:id",authenticate,authorize([Role.HR]), this.deleteDepartment);
 
-        this.router.put("/:id",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]), this.updateDepartment);
+        this.router.put("/:id",authenticate,authorize([Role.HR]), this.updateDepartment);
         
 
     }

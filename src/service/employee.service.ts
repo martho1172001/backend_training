@@ -38,19 +38,25 @@ async getEmployeeByID(id:number): Promise<Employee |null> {
     if (!department) {
       throw new HttpException(400,`Department with id ${createEmployeeDTo.departmentId} does not exist`); // Handle if the department does not exist
     }
-    const alreadyExists = await this.employeeRepository.findOneByEmail(createEmployeeDTo.email);
+    const alreadyExists = await this.employeeRepository.findOneByusername(createEmployeeDTo.username);
     if (alreadyExists) {
-      throw new HttpException(400,`The username/email already exists`); 
+      throw new HttpException(400,`The username/username already exists`); 
     }
 
     const newEmployee = new Employee();
     newEmployee.name = createEmployeeDTo.name;
-    newEmployee.email = createEmployeeDTo.email;
-    newEmployee.age = createEmployeeDTo.age;
+    newEmployee.username = createEmployeeDTo.username;
+    newEmployee.joiningDate = new Date(createEmployeeDTo.joiningDate);
+
+    newEmployee.experience = createEmployeeDTo.experience;
     newEmployee.password = await bcrypt.hash(createEmployeeDTo.password,10);
     newEmployee.role = createEmployeeDTo.role;
     const newAddress = new Address;
-    newAddress.line1=createEmployeeDTo.address.line1;
+    newAddress.address_line_1=createEmployeeDTo.address.address_line_1;
+    newAddress.address_line_2= createEmployeeDTo.address.address_line_2;
+    newAddress.city= createEmployeeDTo.address.city;
+    newAddress.country= createEmployeeDTo.address.country;
+    newAddress.state= createEmployeeDTo.address.state;
     newAddress.pincode= createEmployeeDTo.address.pincode;
     newEmployee.address=newAddress;
     
@@ -59,7 +65,7 @@ async getEmployeeByID(id:number): Promise<Employee |null> {
     // Set the department for the employee
     newEmployee.department = department;
     await this.employeeRepository.save(newEmployee);
-    const employee = await this.employeeRepository.getEmployeeWithDepartmentIdUsingEmail(newEmployee.email)
+    const employee = await this.employeeRepository.getEmployeeWithDepartmentIdUsingusername(newEmployee.username)
     
     return employee;
 }
@@ -70,41 +76,35 @@ deleteEmployee(employee:Employee) {
 updateEmployee(updateEmployeeDTo:UpdateEmployeeDto,updatedEmployee:Employee):Promise<Employee |null>{
    
     updatedEmployee.name = updateEmployeeDTo.name;
-    updatedEmployee.email = updateEmployeeDTo.email;
+    updatedEmployee.username = updateEmployeeDTo.username;
+    updatedEmployee.joiningDate = updateEmployeeDTo.joiningDate;
+    updatedEmployee.experience = updateEmployeeDTo.experience;
+    updatedEmployee.role = updateEmployeeDTo.role;
     updatedEmployee.updatedAt=new Date();
-    updatedEmployee.address.line1=updateEmployeeDTo.address.line1;
+    updatedEmployee.address.address_line_1=updateEmployeeDTo.address.address_line_1;
+    updatedEmployee.address.address_line_2= updateEmployeeDTo.address.address_line_2;
+    updatedEmployee.address.city= updateEmployeeDTo.address.city;
+    updatedEmployee.address.country= updateEmployeeDTo.address.country;
+    updatedEmployee.address.state= updateEmployeeDTo.address.state;
     updatedEmployee.address.pincode= updateEmployeeDTo.address.pincode;
     updatedEmployee.address.updatedAt=new Date();
     return this.employeeRepository.save(updatedEmployee);
 }
-assign=async(employee,patchDto)=>{
 
-    
+assign=async(employee,patchDto)=>{   
         Object.assign(employee, patchDto);
+        await this.employeeRepository.save(employee);
         return employee;
-    
-    
-    // Object.assign(patchEmployee,patchEmployeeDTo)
-    // patchEmployee.updatedAt=new Date();
-    
-    // return this.employeeRepository.save(patchEmployee);
 }
-patchAddress(patchAddressDto:PatchAddressDto,patchEmployee:Employee){
-   
-    patchEmployee.updatedAt=new Date();
-    if(patchAddressDto)
-    {patchEmployee.address.updatedAt=new Date();
-        Object.assign(patchEmployee.address,patchAddressDto)
-    }
-    return this.employeeRepository.save(patchEmployee);
-}
-
 
 loginEmployee=async(loginDto:LoginDto)=>{
-   const employee=await this.employeeRepository.findOneByEmail(loginDto.email);
+   const employee=await this.employeeRepository.findOneByusername(loginDto.username);
    if(!employee){
     throw new HttpException(400,"Username not found");
    }
+   employee.isActive=true;
+
+   await this.employeeRepository.save(employee);
 
   const result= await bcrypt.compare(loginDto.password, employee.password);
   if(!result){
@@ -114,11 +114,11 @@ loginEmployee=async(loginDto:LoginDto)=>{
 
   const payload={
     name:employee.name,
-    email:employee.email,
+    username:employee.username,
     role:employee.role
   }
 
-  const loginemployeedetails = await this.employeeRepository.getEmployeeWithOnlyDepartmentIdUisngEmail(loginDto.email)
+  const loginemployeedetails = await this.employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername(loginDto.username)
     
   const token=jsonwebtoken.sign(payload,process.env.JWT_SECRETKEY,{
     expiresIn:process.env.JWT_EXPIRY

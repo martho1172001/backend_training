@@ -21,15 +21,15 @@ class EmployeeController {
     constructor(private employeeService: EmployeeService) {
         this.router = express.Router();
 
-        this.router.get("/", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getAllEmployees);
-        this.router.get("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getEmployeeByID);
-        this.router.post("/", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.createAnEmployee);
+        this.router.get("/",authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getAllEmployees);
+        this.router.get("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]) ,this.getEmployeeByID);
+        this.router.post("/", authenticate, authorize([Role.HR]), this.createAnEmployee);
 
-        this.router.delete("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.deleteEmployee);
+        this.router.delete("/:id", authenticate, authorize([Role.HR]), this.deleteEmployee);
         this.router.put("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.updateEmployee);
         this.router.patch("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.patchEmployee);
 
-        this.router.post("/login", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.loginEmployee);
+        this.router.post("/login", this.loginEmployee);
 
 
 
@@ -141,6 +141,7 @@ class EmployeeController {
             return res.status(400).json({ message: 'Address validation error', errors: addressErrors });
         }
         await this.employeeService.assign(employee.address, patchAddressDto)
+
 
         // Save the updated employee and address
         console.log(employee, employee.address)

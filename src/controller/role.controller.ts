@@ -9,7 +9,7 @@ class RoleController{
     public router: express.Router;
    constructor(private roleService:RoleService){
     this.router= express.Router();
-    this.router.get("/",authenticate,authorize([Role.DEVELOPER,Role.HR,Role.UI]),this.getRoles);
+    this.router.get("/",this.getRoles);
    }
 
 getRoles=async (req: express.Request, res: express.Response, next: NextFunction)=>{
