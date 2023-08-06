@@ -14,6 +14,8 @@ import { Role } from "../utils/role.enum";
 import PatchEmployeeDto from "../dto/patch-employee.dto";
 import PatchAddressDto from "../dto/patch-employee-address.dto";
 import employeeRepository from "../repository/employee.repository";
+import logger from "../logging/winston.log";
+import RequestWithUser from "../utils/RequestWithUser";
 
 class EmployeeController {
 
@@ -36,7 +38,7 @@ class EmployeeController {
     }
 
 
-    public createAnEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public createAnEmployee = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
         try {
             const createEmployeeDto = plainToInstance(CreateEmployeeDto, req.body);
             console.log(createEmployeeDto);
@@ -51,8 +53,10 @@ class EmployeeController {
                 const savedEmployee = await this.employeeService.createAnEmployee(createEmployeeDto);
 
                 //const employee = await this.employeeService.getAllEmployee(employeeid);
-
-                res.status(200).send({ data: savedEmployee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
+                const start= Number(req.startTime); 
+        const logStart = `[${req.traceId}] /employees${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+                res.status(200).send({ data: savedEmployee, errors: null, message: "OK", meta: { length: 1,took: Date.now()-start,  total: 1 } });
             }
         }
         catch (error) {
@@ -61,7 +65,7 @@ class EmployeeController {
     }
 
 
-    public loginEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public loginEmployee = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
 
         try {
             const loginDto = plainToInstance(LoginDto, req.body);
@@ -72,8 +76,10 @@ class EmployeeController {
                 throw new HttpExceptionHandle(400, "Validation Errors", errors);
             } else {
                 const token = await this.employeeService.loginEmployee(loginDto);
-
-                res.status(200).send({ data: token, errors: null, message: "OK", meta: { length: 1, total: 1 } });
+                const start= Number(req.startTime);
+                const logStart = `[${req.traceId}] /employees${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+                res.status(200).send({ data: token, errors: null, message: "OK", meta: { length: 1,took: Date.now()-start,  total: 1 } });
             }
 
         } catch (error) {
@@ -81,24 +87,32 @@ class EmployeeController {
         }
 
     }
-    public getAllEmployees = async (req: express.Request, res: express.Response) => {
+    public getAllEmployees = async (req:RequestWithUser, res: express.Response) => {
         const employees = await this.employeeService.getAllEmployee();
-        res.status(200).send({ data: employees, errors: null, message: "OK", meta: { length: employees.length, total: employees.length } });
+        const start= Number(req.startTime);
+        const logStart = `[${req.traceId}] /employees${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+        
+        res.status(200).send({ data: employees, errors: null, message: "OK", meta: { length: employees.length,took: Date.now()-start, total: employees.length } });
+        
+
     }
 
-    public getEmployeeByID = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public getEmployeeByID = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
         try {
             const employeeid = Number(req.params.id);
             const employee = await this.employeeService.getEmployeeByID(employeeid);
-            console.log(employee);
-            res.status(200).send({ data: employee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
+            const start= Number(req.startTime);
+        const logStart = `[${req.traceId}] /employees${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+            res.status(200).send({ data: employee, errors: null, message: "OK", meta: { length: 1,took: Date.now()-start,  total: 1 } });
         }
         catch (error) {
             next(error);
         }
 
     }
-    public updateEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public updateEmployee = async (req:RequestWithUser, res: express.Response, next: NextFunction) => {
 
         try {
             const employeeid = Number(req.params.id);
@@ -111,7 +125,10 @@ class EmployeeController {
             }
             else {
                 const updatedEmployee = await this.employeeService.updateEmployee(updateEmployeeDto, employee);
-                res.status(200).send({ data: updatedEmployee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
+                const start= Number(req.startTime);
+        const logStart = `[${req.traceId}] /employees${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+                res.status(200).send({ data: updatedEmployee, errors: null, message: "OK", meta: { length: 1, took: Date.now()-start, total: 1 } });
             }
         }
         catch (error) {
@@ -121,7 +138,7 @@ class EmployeeController {
     }
 
 
-    public patchEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public patchEmployee = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
         const patchEmployeeDto = plainToInstance(PatchEmployeeDto, req.body);
         const employeeid = Number(req.params.id);
         const employee = await this.employeeService.getEmployeeByID(employeeid);
@@ -132,31 +149,31 @@ class EmployeeController {
         }
         await this.employeeService.assign(employee, patchEmployeeDto)
 
-        // Validate and apply the changes to the address object
         const patchAddressDto = plainToInstance(PatchAddressDto, { ...req.body.address });
-        //      
+     
         const addressErrors = await validate(patchAddressDto);
-        // const addressErrors = await validate(updateAddressDto);
+
         if (addressErrors.length > 0) {
             return res.status(400).json({ message: 'Address validation error', errors: addressErrors });
         }
         await this.employeeService.assign(employee.address, patchAddressDto)
-
-
-        // Save the updated employee and address
-        console.log(employee, employee.address)
-
-        res.status(200).send({ data: employee, errors: null, message: "OK", meta: { length: 1, total: 1 } });
+        const start= Number(req.startTime);
+        const logStart = `[${req.traceId}] /employees${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+        res.status(200).send({ data: employee, errors: null, message: "OK", meta: { length: 1,took: Date.now()-start,  total: 1 } });
     }
 
 
-    public deleteEmployee = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public deleteEmployee = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
 
         try {
             const employeeid = Number(req.params.id);
             const employee = await this.employeeService.getEmployeeByID(employeeid);
             console.log(employee);
             await this.employeeService.deleteEmployee(employee);
+            const start= Number(req.startTime);
+        const logStart = `[${req.traceId}] /employees${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
             res.status(200).send("employee deleted successfully");
         }
         catch (error) {

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jsonwebtoken from "jsonwebtoken";
-import { RequestWithUser } from "../utils/requestWithUser";
+import  RequestWithUser  from "../utils/RequestWithUser";
 import { jwtPayload } from "../utils/jwtPayloadtype";
 
 const authenticate = async( req: RequestWithUser, res: Response, next: NextFunction)=>{

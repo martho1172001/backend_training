@@ -1,5 +1,5 @@
 import { NextFunction, Response } from "express"
-import { RequestWithUser } from "../utils/requestWithUser"
+import  RequestWithUser from "../utils/RequestWithUser"
 import { Role } from "../utils/role.enum";
 import HttpException from "../exception/http.exception";
 

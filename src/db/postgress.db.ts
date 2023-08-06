@@ -15,7 +15,7 @@ const dataSource = new DataSource({
     password:"postgres",
     database: "training",
     entities: ["dist/entity/*.js"],
-    logging: true,
+  //  logging: true,
     migrations: ["dist/db/migrations/*.js"],
     namingStrategy : new SnakeNamingStrategy()
 })

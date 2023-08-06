@@ -4,6 +4,8 @@ import authenticate from "../middleware/authenticate.middleware";
 import authorize from "../middleware/authorize.middleware";
 import { Role } from "../utils/role.enum";
 import RoleService from "../service/role.service";
+import RequestWithUser from "../utils/RequestWithUser";
+import logger from "../logging/winston.log";
 
 class RoleController{
     public router: express.Router;
@@ -12,11 +14,13 @@ class RoleController{
     this.router.get("/",this.getRoles);
    }
 
-getRoles=async (req: express.Request, res: express.Response, next: NextFunction)=>{
+getRoles=async (req: RequestWithUser, res: express.Response, next: NextFunction)=>{
+    const start= Number(req.startTime);
    
     const roles= this.roleService.getRoles();
-    
-    res.status(200).send({data:roles,errors:null,message:"OK",meta:{length:roles.length,total:roles.length}});
+    const logStart = `[${req.traceId}] /roles${req.url} : ${req.method} :`;
+    logger.info(`${logStart} Request completed `);  
+    res.status(200).send({data:roles,errors:null,message:"OK",meta:{length:roles.length,took: Date.now()-start,total:roles.length}});
            
 
 }

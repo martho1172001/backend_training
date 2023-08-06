@@ -24,6 +24,10 @@ import HttpException from "./exception/http.exception";
 import errorMiddleware from "./middleware/error.middleware";
 import {departmentRouter} from "./route/department.route";
 import roleRouter from "./route/role.route";
+import logger from "./logging/winston.log";
+//import uuidv4 from "uuidv4"
+const { v4: uuidv4 } = require('uuid');
+
 
 const server = express();
 server.use(express.json());
@@ -48,8 +52,8 @@ server.use(errorMiddleware);
 
 (async()=>{
     await dataSource.initialize();
-    server.listen(3001, () => {
-        console.log("server is listening to port 3001");
+    server.listen(4000, () => {
+        console.log("server is listening to port 4000");
     });
 })();
 

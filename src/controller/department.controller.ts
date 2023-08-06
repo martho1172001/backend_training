@@ -10,6 +10,8 @@ import UpdateDepartmentDto from "../dto/update-department.dto";
 import { Role } from "../utils/role.enum";
 import authorize from "../middleware/authorize.middleware";
 import authenticate from "../middleware/authenticate.middleware";
+import RequestWithUser from "../utils/RequestWithUser";
+import logger from "../logging/winston.log";
 
 class DepartmentController {
     public router: express.Router;
@@ -25,7 +27,7 @@ class DepartmentController {
         
 
     }
-    public createDepartment= async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public createDepartment= async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
         try {
             const createDepartmentDto = plainToInstance(CreateDepartmentDto, req.body);
             console.log(createDepartmentDto);
@@ -36,7 +38,10 @@ class DepartmentController {
             }
             else {
                 const savedDepartment = await this.departmentService.createDepartment(createDepartmentDto);
-                res.status(200).send({data:savedDepartment,errors:null,message:"OK",meta:{length:1,total:1}});
+                const start= Number(req.startTime);
+                const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+                res.status(200).send({data:savedDepartment,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
             }
         }
         catch (error) {
@@ -44,18 +49,24 @@ class DepartmentController {
         }
     }
 
-    public getAllDepartments = async (req: express.Request, res: express.Response) => {
+    public getAllDepartments = async (req: RequestWithUser, res: express.Response) => {
 
 
         const departments = await this.departmentService.getAllDepartment();
-        res.status(200).send({data:departments,errors:null,message:"OK",meta:{length:departments.length,total:departments.length}});
+        const start= Number(req.startTime);
+        const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+        res.status(200).send({data:departments,errors:null,message:"OK",meta:{length:departments.length,took: Date.now()-start,total:departments.length}});
     }
 
-    public getDepartmentById = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public getDepartmentById = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
+        const start= Number(req.startTime);
         try {
             const id = Number(req.params.id);
             const department = await this.departmentService.getDepartmentByID(id);
-            res.status(200).send({data:department,errors:null,message:"OK",meta:{length:1,total:1}});
+            const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+            res.status(200).send({data:department,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
         }
         catch (error) {
             next(error);
@@ -63,21 +74,26 @@ class DepartmentController {
 
     }
 
-    public deleteDepartment = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public deleteDepartment = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
+        const start= Number(req.startTime);
 
         try {
             const departmentid = Number(req.params.id);
             const department = await this.departmentService.getDepartmentByID(departmentid);
             console.log(department);
             const deletedDepartment= await this.departmentService.deleteDepartment(department);
-            res.status(200).send({data:deletedDepartment,errors:null,message:"OK",meta:{length:1,total:1}});
+            const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+      
+            res.status(200).send({data:deletedDepartment,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
         }
         catch (error) {
             next(error);
         }
 
     }
-    public updateDepartment = async (req: express.Request, res: express.Response, next: NextFunction) => {
+    public updateDepartment = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
+        const start= Number(req.startTime);
 
         try {
             const departmentid = Number(req.params.id);
@@ -90,7 +106,11 @@ class DepartmentController {
             }
             else {
                 const updatedDepartment = await this.departmentService.updateDepartment(updateDepartmentDto,department);
-                res.status(200).send({data:updatedDepartment,errors:null,message:"OK",meta:{length:1,total:1}});
+                const start= Number(req.startTime);
+                const logStart = `[${req.traceId}] /departments${req.url} : ${req.method} :`;
+                logger.info(`${logStart} Request completed `);
+      
+                res.status(200).send({data:updatedDepartment,errors:null,message:"OK",meta:{length:1,took: Date.now()-start,total:1}});
             }
         }
         catch (error) {
