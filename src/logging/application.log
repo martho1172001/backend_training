@@ -11,3 +11,399 @@
 2023-08-06T17:45:11.082Z [KV_EmployeePortal] info: [06444954-3a5b-4c24-9930-09e42cf9fa14] /departments/ : GET : Request completed 
 2023-08-06T17:45:18.131Z [KV_EmployeePortal] info: [fae8df8a-0f38-4849-b780-32e6bcbac74e] /departments/100 : GET : New Request 
 2023-08-06T17:45:18.134Z [KV_EmployeePortal] warn: [fae8df8a-0f38-4849-b780-32e6bcbac74e] /departments/100 : GET : Unsuccessful department retrieval: department with id 100 not found
+2023-08-06T19:47:04.806Z [KV_EmployeePortal] info: [a280f6e8-0dab-4f3b-8246-a0e12090114c] /employees : GET : New Request 
+2023-08-06T19:47:53.951Z [KV_EmployeePortal] info: [7c801d95-222c-4191-988e-ffe3a89fe50b] /employees/login : POST : New Request 
+2023-08-06T19:47:54.087Z [KV_EmployeePortal] info: [7c801d95-222c-4191-988e-ffe3a89fe50b] /employees/login : POST : Login successful 
+2023-08-06T19:47:54.087Z [KV_EmployeePortal] info: [7c801d95-222c-4191-988e-ffe3a89fe50b] /employees/login : POST : Request completed 
+2023-08-06T19:48:18.486Z [KV_EmployeePortal] info: [b7637ae8-0fb4-4239-a69c-636e48b99c0e] /employees/ : GET : New Request 
+2023-08-06T19:48:18.502Z [KV_EmployeePortal] info: [b7637ae8-0fb4-4239-a69c-636e48b99c0e] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-06T19:48:18.503Z [KV_EmployeePortal] info: [b7637ae8-0fb4-4239-a69c-636e48b99c0e] /employees/ : GET : Request completed 
+2023-08-06T19:54:07.943Z [KV_EmployeePortal] info: [d321b7cd-ecda-433c-9dde-98d5b8c1e2b2] /employees/5 : GET : New Request 
+2023-08-06T19:54:07.955Z [KV_EmployeePortal] info: [d321b7cd-ecda-433c-9dde-98d5b8c1e2b2] /employees/5 : GET : Retrieval of details of employee with id 5 successful 
+2023-08-06T19:54:07.955Z [KV_EmployeePortal] info: [d321b7cd-ecda-433c-9dde-98d5b8c1e2b2] /employees/5 : GET : Request completed 
+2023-08-06T20:56:35.196Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T20:57:23.339Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T20:59:21.771Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:01:04.942Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:01:38.002Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:01:38.012Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:16:36.428Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:16:36.440Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:16:36.440Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:21:22.732Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:21:22.746Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:21:22.749Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:23:27.951Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:23:27.966Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:23:27.967Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:29:16.092Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:29:16.108Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:29:16.108Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:31:51.556Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:31:51.571Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:31:51.571Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:32:41.982Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:32:41.996Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:32:41.996Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:34:17.689Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:34:17.704Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:34:17.704Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:37:52.831Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:37:52.845Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:37:52.845Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:39:36.920Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:39:36.934Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:39:36.935Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:42:48.082Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:42:48.097Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:42:48.097Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:44:35.289Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:44:35.299Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:44:35.299Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:48:53.533Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:48:53.547Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:48:53.548Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:50:24.492Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:50:24.509Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:50:24.509Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:51:29.240Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:51:29.256Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:51:29.257Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:57:01.783Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T21:57:01.795Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T21:57:01.795Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:02:11.823Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:02:11.835Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:02:11.835Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:02:45.858Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:02:45.871Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:02:45.871Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:04:03.668Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:04:03.682Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:04:03.683Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:04:09.375Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:04:09.394Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:04:09.394Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:15:40.372Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:15:40.766Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:15:40.784Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:15:40.785Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:16:47.369Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:16:47.773Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:16:47.783Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:16:47.783Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:21:58.047Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:21:58.765Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:21:58.772Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:21:58.772Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:23:04.410Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:23:04.976Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:23:04.986Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:23:04.986Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:24:54.496Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:24:55.054Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:24:55.062Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:24:55.063Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:25:30.569Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:25:31.125Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:25:31.134Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:25:31.134Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:26:16.860Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:26:17.447Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:26:17.457Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:26:17.457Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:30:49.567Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:30:50.118Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:30:50.131Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:30:50.131Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:30:50.181Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:33:20.783Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:33:21.306Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:33:21.315Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:33:21.316Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:33:21.472Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:34:05.821Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:34:06.351Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:34:06.360Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:34:06.360Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:34:06.497Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:36:24.966Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:36:25.513Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:36:25.522Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:36:25.522Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:36:25.636Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:37:24.038Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:37:24.591Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:37:24.601Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:37:24.602Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:37:24.703Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:39:00.425Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:39:01.046Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:39:01.056Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:39:01.056Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:39:01.171Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:40:42.779Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:40:43.472Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:40:43.481Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:40:43.481Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:40:43.589Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:41:03.677Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:41:04.319Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:41:04.328Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:41:04.329Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:41:04.425Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:43:35.115Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:43:35.850Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:43:35.860Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:43:35.860Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:43:35.994Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:45:53.561Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:45:54.149Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:45:54.159Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:45:54.159Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:45:54.321Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:46:17.129Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:46:17.708Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:46:17.718Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:46:17.718Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:46:17.871Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:47:27.383Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:47:27.965Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:47:27.974Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:47:27.975Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:47:28.130Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:48:08.679Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:48:09.298Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:48:09.307Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:48:09.307Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:48:09.399Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:49:03.361Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:49:03.977Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:49:03.987Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:49:03.987Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:49:04.109Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:49:19.989Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:49:20.529Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:49:20.568Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:49:20.588Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:49:20.589Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:58:51.013Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:58:51.633Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:58:51.896Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:58:51.905Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:58:51.905Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:59:05.941Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T22:59:06.478Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T22:59:06.564Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T22:59:06.588Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T22:59:06.588Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:13:09.564Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:13:10.550Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:13:10.745Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:13:10.754Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:13:10.754Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:13:36.918Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:13:37.502Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:13:37.762Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:13:37.772Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:13:37.772Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:13:37.808Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 2 not found
+2023-08-06T23:14:31.052Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:14:31.594Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:14:31.802Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:14:31.812Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:14:31.812Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:15:38.059Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:15:38.703Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:15:39.097Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:15:39.108Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:15:39.108Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:15:39.144Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 2 not found
+2023-08-06T23:16:57.055Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:16:57.692Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:16:57.978Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:16:57.988Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:16:57.988Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:16:58.023Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 2 not found
+2023-08-06T23:21:48.498Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:21:49.289Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:21:49.693Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:21:49.705Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:21:49.705Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:21:49.749Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-06T23:22:16.092Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:22:16.710Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:22:17.006Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:22:17.016Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:22:17.017Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:22:17.057Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-06T23:23:22.353Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:23:23.210Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:23:49.180Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:23:49.681Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:23:50.087Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:23:50.097Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:23:50.097Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:23:50.132Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-06T23:24:05.109Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:24:05.624Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:24:05.917Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:24:05.929Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:24:05.929Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:24:05.965Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-06T23:24:55.949Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:24:56.530Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:24:56.568Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:24:56.588Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:24:56.588Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:24:56.601Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-06T23:38:10.686Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:38:11.284Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:38:11.606Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:38:11.619Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:38:11.620Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:39:14.492Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:39:15.071Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:39:36.680Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:39:37.217Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:40:34.934Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:40:35.433Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:40:35.946Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:40:35.956Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:40:35.956Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:41:54.656Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:41:55.388Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:41:55.631Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:41:55.640Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:41:55.641Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:43:48.352Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:43:48.877Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:43:49.173Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:43:49.182Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:43:49.182Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:44:54.953Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:44:55.469Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:44:55.859Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:44:55.868Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:44:55.868Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:45:42.169Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:45:42.760Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:45:43.062Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:45:43.073Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:45:43.073Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:46:02.054Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:46:02.625Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:46:02.963Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:46:02.972Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:46:02.972Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:49:02.146Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:49:02.623Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-06T23:49:03.050Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:49:03.060Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:49:03.060Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:49:12.728Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-06T23:49:13.337Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:49:13.355Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-06T23:49:13.356Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-06T23:49:13.372Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:02:54.764Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:02:55.345Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:02:55.635Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:02:55.643Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:02:55.644Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:02:55.678Z [KV_EmployeePortal] warn: logStart Unsuccessful employee creation: username already exists
+2023-08-07T00:03:18.629Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:03:19.254Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:03:19.524Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:03:19.533Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:03:19.534Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:04:20.603Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:04:21.265Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:04:21.817Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:04:21.838Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:04:21.838Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:04:46.501Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:04:47.142Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:04:47.417Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:04:47.434Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:04:47.435Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:06:11.066Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:06:11.660Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:06:27.826Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:06:28.454Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:06:28.725Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:06:28.737Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:06:28.737Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:06:28.777Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T00:07:04.215Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:07:04.806Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:07:05.161Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:07:05.171Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:07:05.171Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:07:05.215Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T00:09:32.007Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:09:32.585Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:09:32.935Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:09:32.950Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:09:32.951Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:10:49.592Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:10:50.253Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:10:50.570Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:10:50.584Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:10:50.584Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:11:13.506Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:11:14.151Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:11:14.192Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:11:14.213Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:11:14.214Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:16:47.831Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:16:48.225Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:17:28.800Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:17:29.386Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:17:29.848Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:17:29.861Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:17:29.862Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:17:29.900Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T00:17:29.902Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T00:17:36.373Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:17:36.991Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:17:37.011Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:17:37.012Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:17:37.025Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T00:17:37.026Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T00:17:37.018Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:21:43.857Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:21:44.468Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:21:44.757Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:21:44.769Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:21:44.769Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:21:44.801Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T00:21:44.802Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T00:21:44.872Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T00:24:00.443Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:24:01.120Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:24:01.289Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:24:01.298Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:24:01.298Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:24:01.332Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T00:24:01.334Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T00:24:01.398Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T00:24:01.399Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T00:24:09.129Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:24:09.692Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:24:09.708Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:24:09.734Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:24:09.734Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:24:09.750Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T00:24:09.752Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T00:24:09.907Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T00:24:09.911Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T00:25:46.467Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T00:25:47.167Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T00:25:47.475Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:25:47.484Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T00:25:47.484Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T00:25:47.522Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T00:25:47.523Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T00:25:47.618Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T00:25:47.621Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
