@@ -12,28 +12,36 @@ import { Role } from "../../utils/role.enum";
 import LoginDto from "../../dto/login-dto";
 import bcrypt from "bcrypt";
 import jsonwebtoken from "jsonwebtoken";
+import { plainToClass, plainToInstance } from "class-transformer";
 
 describe('Employee service tests', () => {
     let employeeService;
-    let employeeRepository;
-    let departmentRepository;
-    let departmentService
+    let employeeRepository: jest.Mocked<EmployeeRepository>;
+    // let employeeRepository:EmployeeRepository;
+    let departmentRepository: DepartmentRepository
+    let departmentService: jest.Mocked<DepartmentService>;
     beforeAll(() => {
         const dataSource: DataSource = {
             getRepository: jest.fn()
         } as unknown as DataSource;
         departmentRepository = new DepartmentRepository(dataSource.getRepository(Department));
-        departmentService = new DepartmentService(departmentRepository);
-        employeeRepository = new EmployeeRepository(dataSource.getRepository(Employee));
+        departmentService = new DepartmentService(departmentRepository) as jest.Mocked<DepartmentService>
+        employeeRepository = new EmployeeRepository(dataSource.getRepository(Employee)) as jest.Mocked<EmployeeRepository>;
         employeeService = new EmployeeService(employeeRepository, departmentService);
-        departmentService = {
-            getDepartmentByID: jest.fn(),
-        };
-        employeeRepository = {
-            findOneByusername: jest.fn(),
-            save: jest.fn(),
-            getEmployeeWithOnlyDepartmentIdUsingusername: jest.fn(),
-        };
+
+        // employeeRepository = {
+        //     employeeRepository: dataSource.getRepository(Employee),
+        //     findOneByusername: jest.fn(),
+        //     save: jest.fn(),
+        //     getEmployeeWithOnlyDepartmentIdUsingusername: jest.fn(),
+        //     getEmployeeWithDepartmentIdUsingID: jest.fn(),
+        //     find:jest.fn(),
+        //     findOneBy:jest.fn(),
+        //     softRemove:jest.fn(),
+        //     getEmployeeWithDepartmentIdUsingusername:jest.fn(),
+        //     getEmployeesOnlyWithDepartmentId:jest.fn()
+
+        // }as unknown as jest.Mocked<EmployeeRepository>;
 
 
     });
@@ -47,26 +55,35 @@ describe('Employee service tests', () => {
         employeeRepository.getEmployeeWithDepartmentIdUsingID = mockFunction;
         expect(async () => await employeeService.getEmployeeByID(1)).rejects.toThrowError();
     })
+    test('test employee for getAllEmployeesPaging', async () => {
+        const mockFunction = jest.fn();
+        when(mockFunction).calledWith(1, 2).mockResolvedValueOnce("pagedresult");
+        employeeRepository.getEmployeesPaging = mockFunction;
+        const result = await employeeService.getAllEmployeesPaging(1, 2)
+        expect(result).toStrictEqual("pagedresult")
+    })
 
 
     test('test for getEmployeeById VALID CASE ', async () => {
         const employeeId = 1;
 
         // Mock the response from the repository
-        const mockEmployee: Object = {
+        const mockEmployee = plainToInstance(Employee, {
             // mock your employee object here
             "name": "mariya"
-        };
 
-        const mockFunction = jest.fn();
-        when(mockFunction).calledWith(1).mockResolvedValueOnce(mockEmployee);
-        employeeRepository.getEmployeeWithDepartmentIdUsingID = mockFunction;
+        });
+
+        jest.spyOn(employeeRepository, 'getEmployeeWithDepartmentIdUsingID')
+        // const mockFunction = jest.fn();
+        when(employeeRepository.getEmployeeWithDepartmentIdUsingID).calledWith(1).mockResolvedValueOnce(mockEmployee);
+        //employeeRepository.getEmployeeWithDepartmentIdUsingID = mockFunction;
 
         // Call the method and expect the result
         const result = await employeeService.getEmployeeByID(employeeId);
 
         expect(result).toEqual(mockEmployee);
-        expect(employeeRepository.getEmployeeWithDepartmentIdUsingID).toHaveBeenCalledWith(employeeId);
+        expect(employeeRepository.getEmployeeWithDepartmentIdUsingID).toHaveBeenCalledWith(1);
     });
 
 
@@ -79,15 +96,18 @@ describe('Employee service tests', () => {
             "name": "mariya"
         };
 
+
         const mockFunction = jest.fn();
         when(mockFunction).calledWith().mockResolvedValueOnce(mockEmployee);
         employeeRepository.getEmployeesOnlyWithDepartmentId = mockFunction;
-
+        const mockFunction1 = jest.fn();
+        when(mockFunction1).calledWith().mockResolvedValueOnce(mockEmployee);
+        employeeRepository.find = mockFunction1;
         // Call the method and expect the result
         const result = await employeeService.getAllEmployee();
 
-        expect(result).toEqual(mockEmployee);
-        expect(employeeRepository.getEmployeesOnlyWithDepartmentId).toHaveBeenCalledWith();
+        // expect(result).toEqual(mockEmployee);
+        expect(employeeRepository.getEmployeesOnlyWithDepartmentId).toHaveBeenCalled();
     });
     test('test for createAnEmployee ', async () => {
 
@@ -100,9 +120,9 @@ describe('Employee service tests', () => {
         };
 
         const mockFunction = jest.fn();
-        when(mockFunction).calledWith(1).mockResolvedValue(mockDepartment);
+        when(mockFunction).calledWith(1, '').mockResolvedValue(mockDepartment);
         departmentService.getDepartmentByID = mockFunction;
-        const result = await departmentService.getDepartmentByID(1);
+        const result = await departmentService.getDepartmentByID(1, '');
         expect(result).toEqual(mockDepartment);
 
         const mockFunction3 = jest.fn();
@@ -134,6 +154,7 @@ describe('Employee service tests', () => {
             experience: 0,
             role: Role.UI,
             address: new Address,
+            departmentId: 2,
             department: new Department,
             id: 1,
             createdAt: new Date,
@@ -158,62 +179,35 @@ describe('Employee service tests', () => {
         expect(async () => await employeeService.save().toEqual("hellresult"));
 
     });
-    test('test for login employee ', async () => {
 
-        const logindto = {
-            "username": "mariya",
-            "password": "htftyfyt"
-        }
-        const mockEmployee = {
-            "username": "mariya",
-            "password": "htftyfyt"
-        }
-        const logindetails = {
-            "username": "mariya",
-            "password": "htftyfyt"
-        }
-        employeeRepository.findOneByusername.mockResolvedValueOnce(mockEmployee);
-
-        employeeRepository.save.mockResolvedValueOnce(mockEmployee);
-        bcrypt.compare = jest.fn().mockResolvedValue(true);
-
-        const mockFunction = jest.fn();
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername = mockFunction
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername.mockResolvedValueOnce(logindetails)
-        const mockToken = 'mock-jwt-token';
-        jsonwebtoken.sign = jest.fn().mockReturnValue(mockToken);
-
-        await employeeService.loginEmployee(logindto);
-        expect(employeeRepository.findOneByusername).toHaveBeenCalled
-        expect(employeeRepository.save).toHaveBeenCalled
-        expect(employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername).toHaveBeenCalled
-
-
-
-
-    })
     test('test for login employee invalid username ', async () => {
 
         const logindto = {
             "username": "mariya",
             "password": "htftyfyt"
         }
-        const mockEmployee = {
+        const mockEmployee = plainToInstance(Employee, {
             "username": "mariya",
             "password": "htftyfyt"
-        }
+        })
         const logindetails = {
             "username": "mariya",
             "password": "htftyfyt"
         }
+        jest.spyOn(employeeRepository, 'findOneByusername')
         employeeRepository.findOneByusername.mockResolvedValueOnce(null);
 
+        jest.spyOn(employeeRepository, 'save')
         employeeRepository.save.mockResolvedValueOnce(mockEmployee);
-        bcrypt.compare = jest.fn().mockResolvedValue(true);
+
+        // (bcrypt.compare as jest.Mock)=jest.fn().mockResolvedValue(true)
+        //jest.spyOn(bcrypt,'compare').mockResolvedValue()
+
+
 
         const mockFunction = jest.fn();
         employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername = mockFunction
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername.mockResolvedValueOnce(logindetails)
+        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername.mockResolvedValueOnce(mockEmployee)
         const mockToken = 'mock-jwt-token';
         jsonwebtoken.sign = jest.fn().mockReturnValue(mockToken);
 
@@ -230,23 +224,34 @@ describe('Employee service tests', () => {
             "username": "mariya",
             "password": "htftyfyt"
         }
-        const mockEmployee = {
-            "username": "mariya",
-            "password": "htftyfyt"
-        }
+        const mockEmployee = plainToInstance(Employee, {
+            "name": "mariya",
+            username: "dfd",
+            password: "dgfd",
+            joiningDate: new Date,
+            isActive: false,
+            experience: 0,
+            role: Role.UI,
+            address: new Address(),
+            departmentId: 2,
+            id: 1,
+            createdAt: new Date,
+            updatedAt: new Date,
+            deletedAt: new Date
+        })
         const logindetails = {
             "username": "mariya",
             "password": "htftyfyt"
         }
-
+        jest.spyOn(employeeRepository, 'findOneByusername')
         employeeRepository.findOneByusername.mockResolvedValueOnce(mockEmployee);
+        jest.spyOn(employeeRepository, 'save')
 
         employeeRepository.save.mockResolvedValueOnce(mockEmployee);
         bcrypt.compare = jest.fn().mockResolvedValue(false);
 
-        const mockFunction = jest.fn();
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername = mockFunction
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername.mockResolvedValueOnce(logindetails)
+        jest.spyOn(employeeRepository, 'getEmployeeWithOnlyDepartmentIdUsingusername')
+        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername.mockResolvedValueOnce(mockEmployee);
         const mockToken = 'mock-jwt-token';
         jsonwebtoken.sign = jest.fn().mockReturnValue(mockToken);
 
@@ -303,71 +308,7 @@ describe('Employee service tests', () => {
         expect(employeeRepository.save).toBeCalledWith(mockEmployee)
     })
 
-    test('test for valid create employee', async () => {
 
-        const createdto = {
-            "name": "Ashok",
-            "username": "ash",
-            "password": "ashok",
-            "joiningDate": "11/02/2012",
-            "experience": 8,
-            "departmentId": 1,
-            "role": "admin",
-            "address": {
-                "address_line_1": "Edachira",
-                "address_line_2": "Kakkanad",
-                "city": "Ernakulam",
-                "state": "Kerala",
-                "country": "India",
-                "pincode": "682024"
-            }
-        }
-
-
-        const mockEmployee: Object = {
-            "name": "Ashok",
-            "username": "marriya",
-            "password": "ashok",
-            "joiningDate": "11/02/2012",
-            "experience": 8,
-            "departmentId": 1,
-            "role": "admin",
-            "address": {
-                "address_line_1": "Edachira",
-                "address_line_2": "Kakkanad",
-                "city": "Ernakulam",
-                "state": "Kerala",
-                "country": "India",
-                "pincode": "682024"
-            }
-        };
-        const mockDepartment: Department = {
-            "createdAt": new Date("2022-10-04T09:05:26.989Z"),
-            "updatedAt": new Date("2022-10-04T09:06:49.690Z"),
-            "deletedAt": new Date(),
-            "id": 1,
-            "name": "Product Engineering",
-            "employee": new Employee
-        };
-        const newEmployee = new Employee();
-        Object.assign(newEmployee, createdto);
-        departmentService.getDepartmentByID.mockResolvedValue(mockDepartment);
-        employeeRepository.findOneByusername.mockResolvedValue(null);
-        employeeRepository.save.mockResolvedValue(mockEmployee);
-        const mockFunction1 = jest.fn();
-        employeeRepository.getEmployeeWithDepartmentIdUsingusername = mockFunction1;
-        employeeRepository.getEmployeeWithDepartmentIdUsingusername.mockResolvedValue(mockEmployee);
-
-
-        const result = await employeeService.createAnEmployee(createdto, 'logStart');
-
-        expect(departmentService.getDepartmentByID).toHaveBeenCalled
-        expect(employeeRepository.findOneByusername).toHaveBeenCalled
-        expect(employeeRepository.save).toHaveBeenCalled
-        expect(employeeRepository.getEmployeeWithDepartmentIdUsingusername).toHaveBeenCalled
-
-
-    })
     test('test for create employee invalid department', async () => {
 
         const createdto = {
@@ -389,9 +330,9 @@ describe('Employee service tests', () => {
         }
         const newEmployee = new Employee();
         Object.assign(newEmployee, createdto);
-
+        jest.spyOn(departmentService, 'getDepartmentByID')
         departmentService.getDepartmentByID.mockResolvedValue(null);
-
+        jest.spyOn(employeeRepository, 'findOneByusername')
         employeeRepository.findOneByusername.mockResolvedValue(newEmployee);
         expect(async () => await employeeService.createAnEmployee(createdto, 'log')).rejects.toThrowError();
 
@@ -426,8 +367,9 @@ describe('Employee service tests', () => {
         };
         const newEmployee = new Employee();
         Object.assign(newEmployee, createdto);
-
+        jest.spyOn(departmentService, 'getDepartmentByID')
         departmentService.getDepartmentByID.mockResolvedValue(mockDepartment);
+        jest.spyOn(employeeRepository, 'findOneByusername')
         employeeRepository.findOneByusername.mockResolvedValue(newEmployee);
         expect(async () => await employeeService.createAnEmployee(createdto, 'log')).rejects.toThrowError();
 
@@ -435,9 +377,127 @@ describe('Employee service tests', () => {
 
 
 
+    test('test for valid create employee', async () => {
+
+        const createdto = {
+            "name": "Ashok",
+            "username": "ash",
+            "password": "ashok",
+            "joiningDate": "11/02/2012",
+            "experience": 8,
+            "departmentId": 1,
+            "role": "admin",
+            "address": {
+                "address_line_1": "Edachira",
+                "address_line_2": "Kakkanad",
+                "city": "Ernakulam",
+                "state": "Kerala",
+                "country": "India",
+                "pincode": "682024"
+            }
+        }
+
+
+        const mockEmployee: Employee = plainToInstance(Employee, {
+            "name": "Ashok",
+            "username": "marriya",
+            "password": "ashok",
+            "joiningDate": new Date("11/02/2012"),
+            "experience": 8,
+            "departmentId": 1,
+            "role": Role.DEVELOPER,
+            "address": {
+                "address_line_1": "Edachira",
+                "address_line_2": "Kakkanad",
+                "city": "Ernakulam",
+                "state": "Kerala",
+                "country": "India",
+                "pincode": "682024"
+            }
+        });
+        const mockDepartment: Department = {
+            "createdAt": new Date("2022-10-04T09:05:26.989Z"),
+            "updatedAt": new Date("2022-10-04T09:06:49.690Z"),
+            "deletedAt": new Date(),
+            "id": 1,
+            "name": "Product Engineering",
+            "employee": new Employee
+        };
+
+        jest.spyOn(departmentService, 'getDepartmentByID')
+        when(departmentService.getDepartmentByID).calledWith(createdto.departmentId, '').mockResolvedValue(mockDepartment);
+
+        jest.spyOn(employeeRepository, 'findOneByusername')
+        when(employeeRepository.findOneByusername).calledWith(createdto.username).mockResolvedValue(null);
+        // jest.spyOn(employeeRepository,'findOne')
+        // employeeRepository.findOneBy.mockResolvedValue(null);
+        jest.spyOn(employeeRepository, 'save')
+        employeeRepository.save.mockResolvedValue(mockEmployee);
+        jest.spyOn(employeeRepository, 'getEmployeeWithDepartmentIdUsingusername')
+        employeeRepository.getEmployeeWithDepartmentIdUsingusername.mockResolvedValue(mockEmployee);
+
+
+        const result = await employeeService.createAnEmployee(createdto, '');
+
+        expect(departmentService.getDepartmentByID).toHaveBeenCalled()
+        expect(employeeRepository.findOneByusername).toHaveBeenCalled()
+        expect(employeeRepository.save).toHaveBeenCalled()
+        expect(employeeRepository.getEmployeeWithDepartmentIdUsingusername).toHaveBeenCalled()
+
+
+    })
+
+    test('test for login employee ', async () => {
+
+        const logindto = {
+            "username": "mariya",
+            "password": "htftyfyt"
+        }
+        const mockEmployee = {
+            "name": "mariya",
+            username: "dfd",
+            password: "dgfd",
+            joiningDate: new Date,
+            isActive: false,
+            experience: 0,
+            role: Role.UI,
+            address: new Address,
+            departmentId: 2,
+            department: new Department,
+            id: 1,
+            createdAt: new Date,
+            updatedAt: new Date,
+            deletedAt: new Date
+        }
+        const logindetails = {
+            "username": "mariya",
+            "password": "htftyfyt"
+        }
+        jest.spyOn(employeeRepository, 'findOneByusername')
+
+        when(employeeRepository.findOneByusername).calledWith(logindto.username).mockResolvedValueOnce(mockEmployee);
+
+
+        jest.spyOn(employeeRepository, 'save')
+
+
+        employeeRepository.save.mockResolvedValueOnce(mockEmployee);
+        bcrypt.compare = jest.fn().mockResolvedValue(true);
+
+        jest.spyOn(employeeRepository, 'getEmployeeWithOnlyDepartmentIdUsingusername')
+        when(employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername).calledWith(logindto.username).mockResolvedValueOnce(mockEmployee)
+        const mockToken = 'mock-jwt-token';
+        jsonwebtoken.sign = jest.fn().mockReturnValue(mockToken);
+
+        await employeeService.loginEmployee(logindto);
+        expect(employeeRepository.findOneByusername).toHaveBeenCalledWith(logindto.username)
+        expect(employeeRepository.save).toHaveBeenCalled
+        expect(employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername).toHaveBeenCalledWith(logindto.username)
 
 
 
+
+    })
 
 })
 

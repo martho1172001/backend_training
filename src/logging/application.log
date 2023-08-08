@@ -407,3 +407,370 @@
 2023-08-07T00:25:47.523Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
 2023-08-07T00:25:47.618Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
 2023-08-07T00:25:47.621Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T04:15:57.008Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:15:57.747Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:19:52.438Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:19:52.988Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:21:15.196Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:21:15.691Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:23:28.241Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:23:28.744Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:24:40.166Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:24:40.706Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:27:48.843Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:27:49.452Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:28:20.835Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:28:21.335Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:29:13.234Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:29:13.772Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:30:40.048Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:30:40.546Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:32:35.547Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:32:36.003Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:37:59.479Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:37:59.942Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:39:55.249Z [KV_EmployeePortal] info: [47b01cf8-4714-42ef-bd18-8aad528756b6] /employees/5 : GET : New Request 
+2023-08-07T04:39:55.270Z [KV_EmployeePortal] info: [47b01cf8-4714-42ef-bd18-8aad528756b6] /employees/5 : GET : Retrieval of details of employee with id 5 successful 
+2023-08-07T04:39:55.270Z [KV_EmployeePortal] info: [47b01cf8-4714-42ef-bd18-8aad528756b6] /employees/5 : GET : Request completed 
+2023-08-07T04:40:15.998Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:40:16.450Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:47:01.659Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:47:02.256Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:47:32.206Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:47:32.721Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:49:13.705Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:49:14.294Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T04:50:39.658Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T04:50:40.167Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T05:00:09.489Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T05:00:16.839Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T05:02:17.856Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T05:02:18.303Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T05:14:23.576Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T05:14:24.375Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T05:20:04.736Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T05:20:05.307Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T05:54:18.273Z [KV_EmployeePortal] info: [04bc6b74-f6c0-47c2-bdeb-5d958e774f7e] /employees/5 : GET : New Request 
+2023-08-07T05:54:31.997Z [KV_EmployeePortal] info: [89212506-4ee5-487f-8c99-2ed2814d35c5] /employees/login : POST : New Request 
+2023-08-07T05:54:32.246Z [KV_EmployeePortal] info: [89212506-4ee5-487f-8c99-2ed2814d35c5] /employees/login : POST : Login successful 
+2023-08-07T05:54:32.247Z [KV_EmployeePortal] info: [89212506-4ee5-487f-8c99-2ed2814d35c5] /employees/login : POST : Request completed 
+2023-08-07T05:55:18.351Z [KV_EmployeePortal] info: [0bc78527-cf40-4961-b464-97641533f7c7] /employees/ : GET : New Request 
+2023-08-07T05:55:18.365Z [KV_EmployeePortal] info: [0bc78527-cf40-4961-b464-97641533f7c7] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T05:55:18.365Z [KV_EmployeePortal] info: [0bc78527-cf40-4961-b464-97641533f7c7] /employees/ : GET : Request completed 
+2023-08-07T05:57:52.224Z [KV_EmployeePortal] info: [0e5432eb-79fa-46ee-b1c0-9afa529d6aa7] /employees/ : GET : New Request 
+2023-08-07T05:57:52.241Z [KV_EmployeePortal] info: [0e5432eb-79fa-46ee-b1c0-9afa529d6aa7] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T05:57:52.242Z [KV_EmployeePortal] info: [0e5432eb-79fa-46ee-b1c0-9afa529d6aa7] /employees/ : GET : Request completed 
+2023-08-07T05:59:21.482Z [KV_EmployeePortal] info: [f7626bf0-9c97-4cc2-b693-fb3e080a81cb] /employees/ : GET : New Request 
+2023-08-07T05:59:21.511Z [KV_EmployeePortal] info: [f7626bf0-9c97-4cc2-b693-fb3e080a81cb] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T05:59:21.511Z [KV_EmployeePortal] info: [f7626bf0-9c97-4cc2-b693-fb3e080a81cb] /employees/ : GET : Request completed 
+2023-08-07T06:14:14.844Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T06:14:15.438Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T06:15:51.351Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T06:15:51.909Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T06:25:35.264Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T06:25:35.736Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T06:25:36.126Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T06:25:36.137Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T06:25:36.137Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T06:53:18.224Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T06:56:03.456Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:25:22.744Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T07:25:58.730Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:25:58.741Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:25:58.766Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:26:07.888Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:26:14.179Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:33:30.904Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:33:40.760Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T07:33:41.322Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T07:33:41.374Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T07:33:41.382Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T07:33:41.383Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T07:33:41.416Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:33:41.419Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:33:41.451Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:34:31.492Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T07:34:31.996Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T07:34:32.391Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T07:34:32.401Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T07:34:32.402Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T07:34:32.441Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:34:32.443Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:34:32.470Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:38:08.217Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T07:38:08.759Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T07:50:30.594Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T07:50:31.041Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T07:52:58.957Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T07:52:59.683Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T07:53:40.111Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T07:53:40.678Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T07:54:55.984Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:55:03.774Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:55:14.511Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T07:55:14.985Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T07:57:55.794Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:58:02.551Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T07:59:21.954Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:01:00.752Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:01:01.274Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:01:01.624Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:01:01.635Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:01:01.635Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:01:01.669Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:01:01.680Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:01:13.955Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:01:14.497Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:01:14.589Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:01:14.614Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:01:14.614Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:01:14.625Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:01:14.641Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:02:44.244Z [KV_EmployeePortal] info: [24713984-2371-4451-a849-b2459edb7aee] /employees/ : GET : New Request 
+2023-08-07T08:02:44.272Z [KV_EmployeePortal] info: [24713984-2371-4451-a849-b2459edb7aee] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T08:02:44.273Z [KV_EmployeePortal] info: [24713984-2371-4451-a849-b2459edb7aee] /employees/ : GET : Request completed 
+2023-08-07T08:03:23.204Z [KV_EmployeePortal] info: [3a8dc17b-bd25-4414-bcb0-cba1af614acf] /employees/5 : DELETE : New Request 
+2023-08-07T08:03:33.859Z [KV_EmployeePortal] info: [1d640bb1-5278-4af0-8506-4725e7718569] /employees/ : GET : New Request 
+2023-08-07T08:03:33.873Z [KV_EmployeePortal] info: [1d640bb1-5278-4af0-8506-4725e7718569] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T08:03:33.873Z [KV_EmployeePortal] info: [1d640bb1-5278-4af0-8506-4725e7718569] /employees/ : GET : Request completed 
+2023-08-07T08:04:02.292Z [KV_EmployeePortal] info: [54f6af8c-fb82-4a6e-995e-094bed579480] /employees/login : POST : New Request 
+2023-08-07T08:04:02.715Z [KV_EmployeePortal] info: [54f6af8c-fb82-4a6e-995e-094bed579480] /employees/login : POST : Login successful 
+2023-08-07T08:04:02.715Z [KV_EmployeePortal] info: [54f6af8c-fb82-4a6e-995e-094bed579480] /employees/login : POST : Request completed 
+2023-08-07T08:04:36.835Z [KV_EmployeePortal] info: [98c849ff-f9e3-4d0e-a583-b421fa9efcfd] /employees/5 : DELETE : New Request 
+2023-08-07T08:04:36.848Z [KV_EmployeePortal] info: [98c849ff-f9e3-4d0e-a583-b421fa9efcfd] /employees/5 : DELETE : Retrieval of details of employee with id 5 successful 
+2023-08-07T08:04:36.850Z [KV_EmployeePortal] info: [98c849ff-f9e3-4d0e-a583-b421fa9efcfd] /employees/5 : DELETE : Deletion of employee with id 5 successful 
+2023-08-07T08:04:36.850Z [KV_EmployeePortal] info: [98c849ff-f9e3-4d0e-a583-b421fa9efcfd] /employees/5 : DELETE : Request completed 
+2023-08-07T08:06:53.488Z [KV_EmployeePortal] info: [e227042b-7f4c-455c-a3ae-b3b211bb70f1] /employees/5 : DELETE : New Request 
+2023-08-07T08:09:33.828Z [KV_EmployeePortal] info: [51cd7e4e-2be4-4cb3-be27-4ce9ad9d02b0] /employees/ : GET : New Request 
+2023-08-07T08:09:33.906Z [KV_EmployeePortal] info: [51cd7e4e-2be4-4cb3-be27-4ce9ad9d02b0] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T08:09:33.907Z [KV_EmployeePortal] info: [51cd7e4e-2be4-4cb3-be27-4ce9ad9d02b0] /employees/ : GET : Request completed 
+2023-08-07T08:10:11.889Z [KV_EmployeePortal] info: [f92d9843-0ac4-4a88-8067-137f0be09c3a] /employees/4 : GET : New Request 
+2023-08-07T08:10:11.903Z [KV_EmployeePortal] info: [f92d9843-0ac4-4a88-8067-137f0be09c3a] /employees/4 : GET : Retrieval of details of employee with id 4 successful 
+2023-08-07T08:10:11.903Z [KV_EmployeePortal] info: [f92d9843-0ac4-4a88-8067-137f0be09c3a] /employees/4 : GET : Request completed 
+2023-08-07T08:10:39.460Z [KV_EmployeePortal] info: [0e6db53d-05f9-4478-aa2e-c8f0ad86ac79] /employees/login : POST : New Request 
+2023-08-07T08:10:39.621Z [KV_EmployeePortal] info: [0e6db53d-05f9-4478-aa2e-c8f0ad86ac79] /employees/login : POST : Login successful 
+2023-08-07T08:10:39.622Z [KV_EmployeePortal] info: [0e6db53d-05f9-4478-aa2e-c8f0ad86ac79] /employees/login : POST : Request completed 
+2023-08-07T08:11:58.371Z [KV_EmployeePortal] info: [4c339ac4-1d9f-4dbe-8fd8-2c2dcab1792e] /employees/ : POST : New Request 
+2023-08-07T08:11:58.375Z [KV_EmployeePortal] warn: [4c339ac4-1d9f-4dbe-8fd8-2c2dcab1792e] /employees/ : POST : Create employee details validation errors 
+2023-08-07T08:12:11.878Z [KV_EmployeePortal] info: [292d24b8-db53-4429-922b-5544ce0ac1ce] /employees/ : POST : New Request 
+2023-08-07T08:12:11.978Z [KV_EmployeePortal] info: [292d24b8-db53-4429-922b-5544ce0ac1ce] /employees/ : POST : Creation of employee with username Ashok successful 
+2023-08-07T08:12:11.978Z [KV_EmployeePortal] info: [292d24b8-db53-4429-922b-5544ce0ac1ce] /employees/ : POST : Request completed 
+2023-08-07T08:13:06.729Z [KV_EmployeePortal] info: [cbec108f-0100-4ff1-8e7e-f2da81f62bde] /employees/6 : PATCH : New Request 
+2023-08-07T08:13:06.744Z [KV_EmployeePortal] info: [cbec108f-0100-4ff1-8e7e-f2da81f62bde] /employees/6 : PATCH : Retrieval of details of employee with id 6 successful 
+2023-08-07T08:13:06.757Z [KV_EmployeePortal] info: [cbec108f-0100-4ff1-8e7e-f2da81f62bde] /employees/6 : PATCH : Updation of details of employee with id 6 successful 
+2023-08-07T08:13:06.758Z [KV_EmployeePortal] info: [cbec108f-0100-4ff1-8e7e-f2da81f62bde] /employees/6 : PATCH : Request completed 
+2023-08-07T08:13:39.957Z [KV_EmployeePortal] info: [14683cc8-37a6-40c5-add3-c769f6e35df4] /departments/6 : GET : New Request 
+2023-08-07T08:13:39.968Z [KV_EmployeePortal] warn: [14683cc8-37a6-40c5-add3-c769f6e35df4] /departments/6 : GET : Unsuccessful department retrieval: department with id 6 not found
+2023-08-07T08:13:45.521Z [KV_EmployeePortal] info: [4e3da648-bbd2-4cb6-8964-49252e222c0a] /departments/ : GET : New Request 
+2023-08-07T08:13:45.525Z [KV_EmployeePortal] info: [4e3da648-bbd2-4cb6-8964-49252e222c0a] /departments/ : GET : All department details  retrieved successfully
+2023-08-07T08:13:45.525Z [KV_EmployeePortal] info: [4e3da648-bbd2-4cb6-8964-49252e222c0a] /departments/ : GET : Request completed 
+2023-08-07T08:14:16.250Z [KV_EmployeePortal] info: [fed0e9e9-a079-455b-a8ca-623778b02675] /departments/ : POST : New Request 
+2023-08-07T08:14:16.265Z [KV_EmployeePortal] info: [fed0e9e9-a079-455b-a8ca-623778b02675] /departments/ : POST : Depaartment with name backend dev created succesfully 
+2023-08-07T08:14:16.265Z [KV_EmployeePortal] info: [fed0e9e9-a079-455b-a8ca-623778b02675] /departments/ : POST : Request completed 
+2023-08-07T08:14:46.043Z [KV_EmployeePortal] info: [d2e6cab2-34ff-432d-9f99-586ff7cab34f] /departments/3 : PUT : New Request 
+2023-08-07T08:14:46.054Z [KV_EmployeePortal] info: [d2e6cab2-34ff-432d-9f99-586ff7cab34f] /departments/3 : PUT : Retrieval of department with id 3 successful 
+2023-08-07T08:14:46.060Z [KV_EmployeePortal] info: [d2e6cab2-34ff-432d-9f99-586ff7cab34f] /departments/3 : PUT : Updation of department with id 3 successful 
+2023-08-07T08:14:46.061Z [KV_EmployeePortal] info: [d2e6cab2-34ff-432d-9f99-586ff7cab34f] /departments/3 : PUT : Request completed 
+2023-08-07T08:15:00.011Z [KV_EmployeePortal] info: [1866c0c4-7b96-42fe-8823-ac78813877dc] /departments/ : GET : New Request 
+2023-08-07T08:15:00.055Z [KV_EmployeePortal] info: [1866c0c4-7b96-42fe-8823-ac78813877dc] /departments/ : GET : All department details  retrieved successfully
+2023-08-07T08:15:00.056Z [KV_EmployeePortal] info: [1866c0c4-7b96-42fe-8823-ac78813877dc] /departments/ : GET : Request completed 
+2023-08-07T08:15:30.614Z [KV_EmployeePortal] info: [48e24ad3-be60-40a7-95f0-98bfdddbd452] /departments/5 : PUT : New Request 
+2023-08-07T08:15:30.624Z [KV_EmployeePortal] info: [48e24ad3-be60-40a7-95f0-98bfdddbd452] /departments/5 : PUT : Retrieval of department with id 5 successful 
+2023-08-07T08:15:30.630Z [KV_EmployeePortal] info: [48e24ad3-be60-40a7-95f0-98bfdddbd452] /departments/5 : PUT : Updation of department with id 5 successful 
+2023-08-07T08:15:30.630Z [KV_EmployeePortal] info: [48e24ad3-be60-40a7-95f0-98bfdddbd452] /departments/5 : PUT : Request completed 
+2023-08-07T08:15:45.690Z [KV_EmployeePortal] info: [4d81638f-391f-40b9-811f-4b69260068c3] /roles/ : GET : New Request 
+2023-08-07T08:15:45.690Z [KV_EmployeePortal] info: [4d81638f-391f-40b9-811f-4b69260068c3] /roles/ : GET : Retrieving roles 
+2023-08-07T08:15:45.690Z [KV_EmployeePortal] info: [4d81638f-391f-40b9-811f-4b69260068c3] /roles/ : GET : Roles retrieval successful 
+2023-08-07T08:15:45.690Z [KV_EmployeePortal] info: [4d81638f-391f-40b9-811f-4b69260068c3] /roles/ : GET : Request completed 
+2023-08-07T08:20:00.823Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:20:01.253Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:20:01.711Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:20:01.721Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:20:01.721Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:20:01.757Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:20:01.770Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:20:20.360Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:20:20.689Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:20:21.207Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:20:21.220Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:20:21.220Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:20:21.226Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:20:21.242Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:29:44.926Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:29:45.345Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:29:45.849Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:29:45.863Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:29:45.863Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:29:45.899Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:29:45.927Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:30:08.833Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:30:08.863Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:42:42.855Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:42:43.400Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:42:43.696Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:42:43.747Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:42:43.749Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T08:42:43.750Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T08:42:43.773Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:43:32.442Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:43:32.951Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:43:33.333Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:43:33.343Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:43:33.343Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:43:33.382Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:43:33.384Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T08:43:33.384Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T08:43:33.390Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:46:25.885Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:46:26.354Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:46:26.443Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:46:26.452Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:46:26.452Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:46:26.486Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:46:26.491Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T08:46:26.492Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T08:46:26.497Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:46:40.539Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:46:41.089Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:46:41.643Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:46:41.655Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:46:41.656Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:46:41.662Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:46:41.664Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T08:46:41.665Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T08:46:41.668Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:54:03.949Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:54:04.425Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:54:04.770Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:54:04.781Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:54:04.782Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:54:04.820Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T08:54:04.821Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:54:04.823Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T08:54:04.824Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T08:54:10.279Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T08:54:10.827Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T08:54:10.928Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:54:10.948Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T08:54:10.949Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T08:54:10.960Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T08:54:10.961Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T08:54:10.963Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T08:54:10.964Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T09:05:01.601Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T09:05:02.143Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T09:05:02.194Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T09:05:02.216Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T09:05:02.217Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T09:05:02.226Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T09:05:02.228Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T09:05:02.230Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T09:05:02.231Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T10:00:20.844Z [KV_EmployeePortal] info: [1d5d6220-e07c-4fec-8bd7-eee7a1baed00] /remployees/paging?pageNumber=1&offset=2 : GET : New Request 
+2023-08-07T10:01:22.911Z [KV_EmployeePortal] info: [7ed93be7-3511-4f6f-928b-7c0fc662af9e] /remployees/paging?pageNumber=1&offset=2 : GET : New Request 
+2023-08-07T10:02:00.198Z [KV_EmployeePortal] info: [7c780d7e-0243-4173-b631-5552ecb5d045] /employees/paging?pageNumber=1&offset=2 : GET : New Request 
+2023-08-07T10:03:23.086Z [KV_EmployeePortal] info: [15a9c6c6-60b7-43f8-a8f4-833cdda3c5e3] /employees/ : GET : New Request 
+2023-08-07T10:03:23.104Z [KV_EmployeePortal] info: [15a9c6c6-60b7-43f8-a8f4-833cdda3c5e3] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T10:03:23.105Z [KV_EmployeePortal] info: [15a9c6c6-60b7-43f8-a8f4-833cdda3c5e3] /employees/ : GET : Request completed 
+2023-08-07T10:03:41.080Z [KV_EmployeePortal] info: [3c54e858-69e4-4f73-b9d2-507fb1db1cd1] /employees/paging?pageNumber=2&offset=3 : GET : New Request 
+2023-08-07T10:11:27.596Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T10:11:27.910Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T10:11:28.049Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T10:11:28.060Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T10:11:28.061Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T10:11:28.099Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T10:11:28.100Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T10:11:28.102Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T10:11:28.103Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T10:11:38.967Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T10:11:39.366Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T10:11:39.846Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T10:11:39.859Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T10:11:39.860Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T10:11:39.864Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T10:11:39.866Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T10:11:39.868Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T10:11:39.873Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T10:12:28.288Z [KV_EmployeePortal] info: [e0c9dca9-d4bb-4dd4-bf3c-846374a4f1a9] /employees/paging?pageNumber=1&offset=3 : GET : New Request 
+2023-08-07T10:24:00.567Z [KV_EmployeePortal] info: [1a883ae9-d5f0-40ba-94fb-b2ed4f8789ac] /employees/paging?pageNumber=1&offset=3 : GET : New Request 
+2023-08-07T10:26:58.650Z [KV_EmployeePortal] info: [c4927ab3-ea17-4155-adc4-834fb5f01ae9] /employees/paging?pageNumber=1&offset=3 : GET : New Request 
+2023-08-07T10:27:11.879Z [KV_EmployeePortal] info: [e0f9bb94-85fd-4505-829b-4f5d13a65770] /employees/paging?pageNumber=2&offset=3 : GET : New Request 
+2023-08-07T10:27:40.325Z [KV_EmployeePortal] info: [6ecd166f-e448-41a2-8260-108677b26bf0] /employees/paging?pageNumber=1&offset=3 : GET : New Request 
+2023-08-07T10:29:09.800Z [KV_EmployeePortal] info: [5f0d9521-ea89-4700-9e30-e149db72c789] /employees/paging?pageNumber=1&offset=3 : GET : New Request 
+2023-08-07T10:29:20.488Z [KV_EmployeePortal] info: [ebbde2a5-b4d8-4730-afbc-9e9251c12de3] /employees/paging?pageNumber=2&offset=3 : GET : New Request 
+2023-08-07T10:32:48.026Z [KV_EmployeePortal] info: [79651860-7ad1-423d-9bcb-53ebed330db1] /employees/ : POST : New Request 
+2023-08-07T10:32:48.178Z [KV_EmployeePortal] info: [79651860-7ad1-423d-9bcb-53ebed330db1] /employees/ : POST : Creation of employee with username hi successful 
+2023-08-07T10:32:48.178Z [KV_EmployeePortal] info: [79651860-7ad1-423d-9bcb-53ebed330db1] /employees/ : POST : Request completed 
+2023-08-07T10:33:52.755Z [KV_EmployeePortal] info: [a930c22c-583c-438f-9b0c-c22cac5c6bab] /employees/ : GET : New Request 
+2023-08-07T10:33:52.771Z [KV_EmployeePortal] info: [a930c22c-583c-438f-9b0c-c22cac5c6bab] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T10:33:52.772Z [KV_EmployeePortal] info: [a930c22c-583c-438f-9b0c-c22cac5c6bab] /employees/ : GET : Request completed 
+2023-08-07T10:34:57.899Z [KV_EmployeePortal] info: [9d2decf4-0fef-4739-95ef-0750f2e14d3c] /employees/login : POST : New Request 
+2023-08-07T10:34:58.004Z [KV_EmployeePortal] info: [9d2decf4-0fef-4739-95ef-0750f2e14d3c] /employees/login : POST : Login successful 
+2023-08-07T10:34:58.004Z [KV_EmployeePortal] info: [9d2decf4-0fef-4739-95ef-0750f2e14d3c] /employees/login : POST : Request completed 
+2023-08-07T10:35:48.479Z [KV_EmployeePortal] info: [2e33ba26-bd13-472d-8d3c-649f59e16cd8] /employees/7 : PATCH : New Request 
+2023-08-07T10:35:48.494Z [KV_EmployeePortal] info: [2e33ba26-bd13-472d-8d3c-649f59e16cd8] /employees/7 : PATCH : Retrieval of details of employee with id 7 successful 
+2023-08-07T10:35:48.506Z [KV_EmployeePortal] info: [2e33ba26-bd13-472d-8d3c-649f59e16cd8] /employees/7 : PATCH : Updation of details of employee with id 7 successful 
+2023-08-07T10:35:48.506Z [KV_EmployeePortal] info: [2e33ba26-bd13-472d-8d3c-649f59e16cd8] /employees/7 : PATCH : Request completed 
+2023-08-07T10:36:13.448Z [KV_EmployeePortal] info: [2c6e83bc-ef21-4795-a5bc-3f40e0a2dfd1] /employees/7 : DELETE : New Request 
+2023-08-07T10:36:13.462Z [KV_EmployeePortal] info: [2c6e83bc-ef21-4795-a5bc-3f40e0a2dfd1] /employees/7 : DELETE : Retrieval of details of employee with id 7 successful 
+2023-08-07T10:36:13.463Z [KV_EmployeePortal] info: [2c6e83bc-ef21-4795-a5bc-3f40e0a2dfd1] /employees/7 : DELETE : Deletion of employee with id 7 successful 
+2023-08-07T10:36:13.463Z [KV_EmployeePortal] info: [2c6e83bc-ef21-4795-a5bc-3f40e0a2dfd1] /employees/7 : DELETE : Request completed 
+2023-08-07T10:36:20.639Z [KV_EmployeePortal] info: [3a5f2b1d-d05b-4efd-98bb-fe2f1c29a1b7] /employees/ : GET : New Request 
+2023-08-07T10:36:20.643Z [KV_EmployeePortal] info: [3a5f2b1d-d05b-4efd-98bb-fe2f1c29a1b7] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T10:36:20.643Z [KV_EmployeePortal] info: [3a5f2b1d-d05b-4efd-98bb-fe2f1c29a1b7] /employees/ : GET : Request completed 
+2023-08-07T10:37:51.627Z [KV_EmployeePortal] info: [3cace757-6b4a-4e30-952e-74fc07d28903] /departments/ : POST : New Request 
+2023-08-07T10:37:51.644Z [KV_EmployeePortal] info: [3cace757-6b4a-4e30-952e-74fc07d28903] /departments/ : POST : Depaartment with name design created succesfully 
+2023-08-07T10:37:51.644Z [KV_EmployeePortal] info: [3cace757-6b4a-4e30-952e-74fc07d28903] /departments/ : POST : Request completed 
+2023-08-07T10:37:58.475Z [KV_EmployeePortal] info: [21276b92-e7e4-48a0-99aa-43ba68982dc2] /departments/ : GET : New Request 
+2023-08-07T10:37:58.478Z [KV_EmployeePortal] info: [21276b92-e7e4-48a0-99aa-43ba68982dc2] /departments/ : GET : All department details  retrieved successfully
+2023-08-07T10:37:58.478Z [KV_EmployeePortal] info: [21276b92-e7e4-48a0-99aa-43ba68982dc2] /departments/ : GET : Request completed 
+2023-08-07T10:38:09.664Z [KV_EmployeePortal] info: [04540592-4fbc-4ad0-bb77-70968c3e1d2b] /departments/6 : DELETE : New Request 
+2023-08-07T10:38:09.677Z [KV_EmployeePortal] info: [04540592-4fbc-4ad0-bb77-70968c3e1d2b] /departments/6 : DELETE : Retrieval of department with id 6 successful 
+2023-08-07T10:38:09.684Z [KV_EmployeePortal] info: [04540592-4fbc-4ad0-bb77-70968c3e1d2b] /departments/6 : DELETE : Deletion of department with id 6 successful 
+2023-08-07T10:38:09.684Z [KV_EmployeePortal] info: [04540592-4fbc-4ad0-bb77-70968c3e1d2b] /departments/6 : DELETE : Request completed 
+2023-08-07T10:38:30.463Z [KV_EmployeePortal] info: [cc8825d1-017c-43b2-89b5-d5ad887001c5] /roles : GET : New Request 
+2023-08-07T10:38:30.464Z [KV_EmployeePortal] info: [cc8825d1-017c-43b2-89b5-d5ad887001c5] /roles/ : GET : Retrieving roles 
+2023-08-07T10:38:30.464Z [KV_EmployeePortal] info: [cc8825d1-017c-43b2-89b5-d5ad887001c5] /roles/ : GET : Roles retrieval successful 
+2023-08-07T10:38:30.464Z [KV_EmployeePortal] info: [cc8825d1-017c-43b2-89b5-d5ad887001c5] /roles/ : GET : Request completed 
+2023-08-07T10:43:36.019Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-07T10:43:36.750Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found
+2023-08-07T10:43:36.972Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T10:43:36.986Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id mariya not found
+2023-08-07T10:43:36.987Z [KV_EmployeePortal] warn: undefined Unsuccessful employee retrieval: employee with id 1 not found
+2023-08-07T10:43:36.992Z [KV_EmployeePortal] warn: undefined Unsuccessful login: Username not found
+2023-08-07T10:43:36.993Z [KV_EmployeePortal] warn: undefined Unsuccessful login:Invalid login credentials 
+2023-08-07T10:43:36.995Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: department with id 1 not found
+2023-08-07T10:43:36.996Z [KV_EmployeePortal] warn: log Unsuccessful employee creation: username already exists
+2023-08-07T11:01:42.403Z [KV_EmployeePortal] info: [f80fa83f-9800-4653-acbb-e15b9386bbc7] /employees : GET : New Request 
+2023-08-07T11:01:42.418Z [KV_EmployeePortal] info: [f80fa83f-9800-4653-acbb-e15b9386bbc7] /employees/ : GET : Retrieval of details of all employees successful 
+2023-08-07T11:01:42.418Z [KV_EmployeePortal] info: [f80fa83f-9800-4653-acbb-e15b9386bbc7] /employees/ : GET : Request completed 
+2023-08-07T11:05:39.694Z [KV_EmployeePortal] info: [9e28f548-26c8-4b44-9aa5-a10685dda2d0] /employees/paging?pageNumber=1&offset=3 : GET : New Request 
+2023-08-07T11:05:51.213Z [KV_EmployeePortal] info: [df2dc2ca-73ce-48e9-8894-af2819c6b9b9] /employees/paging?pageNumber=2&offset=3 : GET : New Request 
+2023-08-07T11:09:02.278Z [KV_EmployeePortal] info: [cac38179-c069-4919-8f07-2f0eb7bb1a27] /employees/paging?page=2 : GET : New Request 
+2023-08-07T11:12:34.840Z [KV_EmployeePortal] info: [69e6877d-b3ba-429f-9215-2a55406383fa] /employees/ : POST : New Request 
+2023-08-07T11:12:34.850Z [KV_EmployeePortal] warn: [69e6877d-b3ba-429f-9215-2a55406383fa] /employees/ : POST : Create employee details validation errors 
+2023-08-07T11:12:46.524Z [KV_EmployeePortal] info: [e704fb33-c3dd-4a54-bcec-7ca612937c68] /employees/ : POST : New Request 
+2023-08-07T11:12:46.727Z [KV_EmployeePortal] info: [e704fb33-c3dd-4a54-bcec-7ca612937c68] /employees/ : POST : Creation of employee with username Ashok successful 
+2023-08-07T11:12:46.728Z [KV_EmployeePortal] info: [e704fb33-c3dd-4a54-bcec-7ca612937c68] /employees/ : POST : Request completed 
+2023-08-07T11:18:35.719Z [KV_EmployeePortal] info: [6168df84-02ad-40d3-b454-a0a1775fa76c] /employees/login : POST : New Request 
+2023-08-07T11:18:35.828Z [KV_EmployeePortal] info: [6168df84-02ad-40d3-b454-a0a1775fa76c] /employees/login : POST : Login successful 
+2023-08-07T11:18:35.828Z [KV_EmployeePortal] info: [6168df84-02ad-40d3-b454-a0a1775fa76c] /employees/login : POST : Request completed 
+2023-08-07T11:23:18.409Z [KV_EmployeePortal] info: [87656ccc-40e1-45c9-8615-7601b6754937] /employees/8 : PATCH : New Request 
+2023-08-07T11:23:18.423Z [KV_EmployeePortal] info: [87656ccc-40e1-45c9-8615-7601b6754937] /employees/8 : PATCH : Retrieval of details of employee with id 8 successful 
+2023-08-07T11:23:18.434Z [KV_EmployeePortal] info: [87656ccc-40e1-45c9-8615-7601b6754937] /employees/8 : PATCH : Updation of details of employee with id 8 successful 
+2023-08-07T11:23:18.434Z [KV_EmployeePortal] info: [87656ccc-40e1-45c9-8615-7601b6754937] /employees/8 : PATCH : Request completed 
+2023-08-08T19:42:16.462Z [KV_EmployeePortal] info: [d0a1272b-53d8-498a-99b5-b7b14601b7ff] / : GET : New Request 
+2023-08-08T19:42:16.595Z [KV_EmployeePortal] info: [a6458169-d2e3-495c-8288-5876fb6143e1] /favicon.ico : GET : New Request 
+2023-08-08T19:42:33.920Z [KV_EmployeePortal] info: [efa5dafe-4054-47fb-97ea-6d53a9839d3a] /employees/ : GET : New Request 
+2023-08-08T19:42:44.618Z [KV_EmployeePortal] info: [2a99fc34-ca85-4c95-933c-7a68097d4dc7] /employees/login : POST : New Request 
+2023-08-08T19:42:44.623Z [KV_EmployeePortal] warn: [2a99fc34-ca85-4c95-933c-7a68097d4dc7] /employees/login : POST : Login details validation errors 
+2023-08-08T19:42:51.009Z [KV_EmployeePortal] info: [68eb01e2-c513-4770-b16a-d42a281045cf] / : GET : New Request 
+2023-08-08T19:43:14.154Z [KV_EmployeePortal] info: [50b8e320-e245-41a8-b07b-5c0cba2954e1] /employees/login : POST : New Request 
+2023-08-08T19:43:14.253Z [KV_EmployeePortal] info: [50b8e320-e245-41a8-b07b-5c0cba2954e1] /employees/login : POST : Login successful 
+2023-08-08T19:43:14.253Z [KV_EmployeePortal] info: [50b8e320-e245-41a8-b07b-5c0cba2954e1] /employees/login : POST : Request completed 
+2023-08-08T19:43:42.828Z [KV_EmployeePortal] info: [1fe63e1f-7b7d-4742-946f-9f1c75892b92] /employees/ : GET : New Request 
+2023-08-08T19:44:52.230Z [KV_EmployeePortal] info: [61a71772-ff25-4639-ae53-7eb24ddfd4bb] /employees/ : GET : New Request 
+2023-08-08T19:46:01.430Z [KV_EmployeePortal] info: [66972a39-f1a9-44dd-a6da-15757ebdd443] /employees/ : GET : New Request 
+2023-08-08T19:48:10.752Z [KV_EmployeePortal] info: [699a1398-f6d5-430b-bc83-80c1e500282c] /employees/ : GET : New Request 
+2023-08-08T20:21:27.544Z [KV_EmployeePortal] info: log Retrieving roles 
+2023-08-08T20:21:28.567Z [KV_EmployeePortal] warn: undefined Unsuccessful department retrieval: department with id 1 not found

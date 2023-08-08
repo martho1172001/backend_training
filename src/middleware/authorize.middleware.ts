@@ -1,37 +1,22 @@
 import { NextFunction, Response } from "express"
-import  RequestWithUser from "../utils/RequestWithUser"
+import RequestWithUser from "../utils/RequestWithUser"
 import { Role } from "../utils/role.enum";
 import HttpException from "../exception/http.exception";
 
-// const authorize = async( req: RequestWithUser, res: Response, next: NextFunction)=>{
-//     try{
-// const role=req.role;
-// if(role!==Role.HR){
-//     throw new HttpException(403,"You have no access");
-// }
-// next();
-//     }catch(error){
-//         next(error)
-//     }
-
-// }
-
-// export default authorize;
 const authorize = (allowedRoles: Role[]) => async (
-    req: RequestWithUser,
-    res: Response,
-    next: NextFunction
-  ) => {
-    try {
-    //  const { role } = req;
+  req: RequestWithUser,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
     const role = req.role;
-      if (!allowedRoles.includes(role)) {
-        throw new HttpException(403, 'You have no access');
-      }
-      next();
-    } catch (error) {
-      next(error);
+    if (!allowedRoles.includes(role)) {
+      throw new HttpException(403, 'You have no access');
     }
-  };
-  
-  export default authorize;
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+export default authorize;

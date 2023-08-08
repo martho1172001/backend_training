@@ -29,7 +29,8 @@ class Employee extends AbstractEntity {
   
     @OneToOne(() => Address, (address) => address.employee, { cascade: true, onDelete: "CASCADE" })
     address: Address;
-
+    @Column()
+    departmentId:number;
 
     @ManyToOne(() => Department, (department) => department.employee)
     @JoinColumn()
