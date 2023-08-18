@@ -15,11 +15,12 @@ class Employee extends AbstractEntity {
 
     @Column()
     password: string;
-
+    
     @Column()
-    joiningDate:Date;
-    @Column({default:false})
-    isActive:boolean;
+    joiningDate:string;
+
+    @Column({nullable:true})
+    isActive:string;
 
     @Column()
     experience: number;
@@ -35,11 +36,6 @@ class Employee extends AbstractEntity {
     @ManyToOne(() => Department, (department) => department.employee)
     @JoinColumn()
     department: Department;
-
-    
-
-
-   
 
 }
 

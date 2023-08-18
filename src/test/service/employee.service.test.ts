@@ -28,41 +28,21 @@ describe('Employee service tests', () => {
         departmentService = new DepartmentService(departmentRepository) as jest.Mocked<DepartmentService>
         employeeRepository = new EmployeeRepository(dataSource.getRepository(Employee)) as jest.Mocked<EmployeeRepository>;
         employeeService = new EmployeeService(employeeRepository, departmentService);
-
-        // employeeRepository = {
-        //     employeeRepository: dataSource.getRepository(Employee),
-        //     findOneByusername: jest.fn(),
-        //     save: jest.fn(),
-        //     getEmployeeWithOnlyDepartmentIdUsingusername: jest.fn(),
-        //     getEmployeeWithDepartmentIdUsingID: jest.fn(),
-        //     find:jest.fn(),
-        //     findOneBy:jest.fn(),
-        //     softRemove:jest.fn(),
-        //     getEmployeeWithDepartmentIdUsingusername:jest.fn(),
-        //     getEmployeesOnlyWithDepartmentId:jest.fn()
-
-        // }as unknown as jest.Mocked<EmployeeRepository>;
-
-
     });
-
-
-
 
     test('test employee for id NOT EXISTING', async () => {
         const mockFunction = jest.fn();
         when(mockFunction).calledWith(1).mockResolvedValueOnce(null);
-        employeeRepository.getEmployeeWithDepartmentIdUsingID = mockFunction;
+        employeeRepository.findOneByID = mockFunction;
         expect(async () => await employeeService.getEmployeeByID(1)).rejects.toThrowError();
     })
-    test('test employee for getAllEmployeesPaging', async () => {
+    test('test employee for getAllEmployees', async () => {
         const mockFunction = jest.fn();
         when(mockFunction).calledWith(1, 2).mockResolvedValueOnce("pagedresult");
-        employeeRepository.getEmployeesPaging = mockFunction;
-        const result = await employeeService.getAllEmployeesPaging(1, 2)
+        employeeRepository.getEmployees = mockFunction;
+        const result = await employeeService.getAllEmployees(1, 2)
         expect(result).toStrictEqual("pagedresult")
     })
-
 
     test('test for getEmployeeById VALID CASE ', async () => {
         const employeeId = 1;
@@ -74,21 +54,19 @@ describe('Employee service tests', () => {
 
         });
 
-        jest.spyOn(employeeRepository, 'getEmployeeWithDepartmentIdUsingID')
+        jest.spyOn(employeeRepository, 'findOneByID')
         // const mockFunction = jest.fn();
-        when(employeeRepository.getEmployeeWithDepartmentIdUsingID).calledWith(1).mockResolvedValueOnce(mockEmployee);
+        when(employeeRepository.findOneByID).calledWith(1).mockResolvedValueOnce(mockEmployee);
         //employeeRepository.getEmployeeWithDepartmentIdUsingID = mockFunction;
 
         // Call the method and expect the result
         const result = await employeeService.getEmployeeByID(employeeId);
 
         expect(result).toEqual(mockEmployee);
-        expect(employeeRepository.getEmployeeWithDepartmentIdUsingID).toHaveBeenCalledWith(1);
+        expect(employeeRepository.findOneByID).toHaveBeenCalledWith(1);
     });
 
-
     test('test for GetAllEmployees ', async () => {
-
 
         // Mock the response from the repository
         const mockEmployee: Object = {
@@ -96,21 +74,19 @@ describe('Employee service tests', () => {
             "name": "mariya"
         };
 
-
         const mockFunction = jest.fn();
         when(mockFunction).calledWith().mockResolvedValueOnce(mockEmployee);
-        employeeRepository.getEmployeesOnlyWithDepartmentId = mockFunction;
+        employeeRepository.getEmployees = mockFunction;
         const mockFunction1 = jest.fn();
         when(mockFunction1).calledWith().mockResolvedValueOnce(mockEmployee);
         employeeRepository.find = mockFunction1;
         // Call the method and expect the result
-        const result = await employeeService.getAllEmployee();
+        const result = await employeeService.getAllEmployees();
 
         // expect(result).toEqual(mockEmployee);
-        expect(employeeRepository.getEmployeesOnlyWithDepartmentId).toHaveBeenCalled();
+        expect(employeeRepository.getEmployees).toHaveBeenCalled();
     });
     test('test for createAnEmployee ', async () => {
-
 
         const mockEmployee: Object = {
             "name": "mariya"
@@ -127,7 +103,7 @@ describe('Employee service tests', () => {
 
         const mockFunction3 = jest.fn();
         when(mockFunction3).calledWith("mariya").mockResolvedValue("mariya details");
-        employeeRepository.findOneByusername = mockFunction3;
+        employeeRepository.findOneByUsername = mockFunction3;
         expect(async () => await employeeService.getEmployeeByID("mariya")).rejects.toThrowError();
 
         const mockFunction2 = jest.fn();
@@ -135,13 +111,9 @@ describe('Employee service tests', () => {
         departmentService.getDepartmentByID = mockFunction2;
         expect(async () => await employeeService.getEmployeeByID(1)).rejects.toThrowError();
 
-
-
-
     });
 
     test('test for deleteEmployee ', async () => {
-
 
         // Mock the response from the repository
         const mockEmployee: Employee = {
@@ -194,8 +166,8 @@ describe('Employee service tests', () => {
             "username": "mariya",
             "password": "htftyfyt"
         }
-        jest.spyOn(employeeRepository, 'findOneByusername')
-        employeeRepository.findOneByusername.mockResolvedValueOnce(null);
+        jest.spyOn(employeeRepository, 'findOneByUsername')
+        employeeRepository.findOneByUsername.mockResolvedValueOnce(null);
 
         jest.spyOn(employeeRepository, 'save')
         employeeRepository.save.mockResolvedValueOnce(mockEmployee);
@@ -203,19 +175,13 @@ describe('Employee service tests', () => {
         // (bcrypt.compare as jest.Mock)=jest.fn().mockResolvedValue(true)
         //jest.spyOn(bcrypt,'compare').mockResolvedValue()
 
-
-
         const mockFunction = jest.fn();
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername = mockFunction
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername.mockResolvedValueOnce(mockEmployee)
+        employeeRepository.getEmployeeByUsername = mockFunction
+        employeeRepository.getEmployeeByUsername.mockResolvedValueOnce(mockEmployee)
         const mockToken = 'mock-jwt-token';
         jsonwebtoken.sign = jest.fn().mockReturnValue(mockToken);
 
-
         expect(async () => await employeeService.loginEmployee(logindto)).rejects.toThrowError();
-
-
-
 
     })
     test('test for login employee invalid password ', async () => {
@@ -243,23 +209,19 @@ describe('Employee service tests', () => {
             "username": "mariya",
             "password": "htftyfyt"
         }
-        jest.spyOn(employeeRepository, 'findOneByusername')
-        employeeRepository.findOneByusername.mockResolvedValueOnce(mockEmployee);
+        jest.spyOn(employeeRepository, 'findOneByUsername')
+        employeeRepository.findOneByUsername.mockResolvedValueOnce(mockEmployee);
         jest.spyOn(employeeRepository, 'save')
 
         employeeRepository.save.mockResolvedValueOnce(mockEmployee);
         bcrypt.compare = jest.fn().mockResolvedValue(false);
 
-        jest.spyOn(employeeRepository, 'getEmployeeWithOnlyDepartmentIdUsingusername')
-        employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername.mockResolvedValueOnce(mockEmployee);
+        jest.spyOn(employeeRepository, 'getEmployeeByUsername')
+        employeeRepository.getEmployeeByUsername.mockResolvedValueOnce(mockEmployee);
         const mockToken = 'mock-jwt-token';
         jsonwebtoken.sign = jest.fn().mockReturnValue(mockToken);
 
-
         expect(async () => await employeeService.loginEmployee(logindto)).rejects.toThrowError();
-
-
-
 
     })
 
@@ -308,7 +270,6 @@ describe('Employee service tests', () => {
         expect(employeeRepository.save).toBeCalledWith(mockEmployee)
     })
 
-
     test('test for create employee invalid department', async () => {
 
         const createdto = {
@@ -332,8 +293,8 @@ describe('Employee service tests', () => {
         Object.assign(newEmployee, createdto);
         jest.spyOn(departmentService, 'getDepartmentByID')
         departmentService.getDepartmentByID.mockResolvedValue(null);
-        jest.spyOn(employeeRepository, 'findOneByusername')
-        employeeRepository.findOneByusername.mockResolvedValue(newEmployee);
+        jest.spyOn(employeeRepository, 'findOneByUsername')
+        employeeRepository.findOneByUsername.mockResolvedValue(newEmployee);
         expect(async () => await employeeService.createAnEmployee(createdto, 'log')).rejects.toThrowError();
 
     })
@@ -369,13 +330,11 @@ describe('Employee service tests', () => {
         Object.assign(newEmployee, createdto);
         jest.spyOn(departmentService, 'getDepartmentByID')
         departmentService.getDepartmentByID.mockResolvedValue(mockDepartment);
-        jest.spyOn(employeeRepository, 'findOneByusername')
-        employeeRepository.findOneByusername.mockResolvedValue(newEmployee);
+        jest.spyOn(employeeRepository, 'findOneByUsername')
+        employeeRepository.findOneByUsername.mockResolvedValue(newEmployee);
         expect(async () => await employeeService.createAnEmployee(createdto, 'log')).rejects.toThrowError();
 
     })
-
-
 
     test('test for valid create employee', async () => {
 
@@ -396,7 +355,6 @@ describe('Employee service tests', () => {
                 "pincode": "682024"
             }
         }
-
 
         const mockEmployee: Employee = plainToInstance(Employee, {
             "name": "Ashok",
@@ -427,23 +385,21 @@ describe('Employee service tests', () => {
         jest.spyOn(departmentService, 'getDepartmentByID')
         when(departmentService.getDepartmentByID).calledWith(createdto.departmentId, '').mockResolvedValue(mockDepartment);
 
-        jest.spyOn(employeeRepository, 'findOneByusername')
-        when(employeeRepository.findOneByusername).calledWith(createdto.username).mockResolvedValue(null);
+        jest.spyOn(employeeRepository, 'findOneByUsername')
+        when(employeeRepository.findOneByUsername).calledWith(createdto.username).mockResolvedValue(null);
         // jest.spyOn(employeeRepository,'findOne')
         // employeeRepository.findOneBy.mockResolvedValue(null);
         jest.spyOn(employeeRepository, 'save')
         employeeRepository.save.mockResolvedValue(mockEmployee);
-        jest.spyOn(employeeRepository, 'getEmployeeWithDepartmentIdUsingusername')
-        employeeRepository.getEmployeeWithDepartmentIdUsingusername.mockResolvedValue(mockEmployee);
-
+        jest.spyOn(employeeRepository, 'getEmployeeByUsername')
+        employeeRepository.getEmployeeByUsername.mockResolvedValue(mockEmployee);
 
         const result = await employeeService.createAnEmployee(createdto, '');
 
         expect(departmentService.getDepartmentByID).toHaveBeenCalled()
-        expect(employeeRepository.findOneByusername).toHaveBeenCalled()
+        expect(employeeRepository.findOneByUsername).toHaveBeenCalled()
         expect(employeeRepository.save).toHaveBeenCalled()
-        expect(employeeRepository.getEmployeeWithDepartmentIdUsingusername).toHaveBeenCalled()
-
+        expect(employeeRepository.getEmployeeByUsername).toHaveBeenCalled()
 
     })
 
@@ -473,32 +429,25 @@ describe('Employee service tests', () => {
             "username": "mariya",
             "password": "htftyfyt"
         }
-        jest.spyOn(employeeRepository, 'findOneByusername')
+        jest.spyOn(employeeRepository, 'findOneByUsername')
 
-        when(employeeRepository.findOneByusername).calledWith(logindto.username).mockResolvedValueOnce(mockEmployee);
-
+        when(employeeRepository.findOneByUsername).calledWith(logindto.username).mockResolvedValueOnce(mockEmployee);
 
         jest.spyOn(employeeRepository, 'save')
-
 
         employeeRepository.save.mockResolvedValueOnce(mockEmployee);
         bcrypt.compare = jest.fn().mockResolvedValue(true);
 
-        jest.spyOn(employeeRepository, 'getEmployeeWithOnlyDepartmentIdUsingusername')
-        when(employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername).calledWith(logindto.username).mockResolvedValueOnce(mockEmployee)
+        jest.spyOn(employeeRepository, 'getEmployeeByUsername')
+        when(employeeRepository.getEmployeeByUsername).calledWith(logindto.username).mockResolvedValueOnce(mockEmployee)
         const mockToken = 'mock-jwt-token';
         jsonwebtoken.sign = jest.fn().mockReturnValue(mockToken);
 
         await employeeService.loginEmployee(logindto);
-        expect(employeeRepository.findOneByusername).toHaveBeenCalledWith(logindto.username)
+        expect(employeeRepository.findOneByUsername).toHaveBeenCalledWith(logindto.username)
         expect(employeeRepository.save).toHaveBeenCalled
-        expect(employeeRepository.getEmployeeWithOnlyDepartmentIdUsingusername).toHaveBeenCalledWith(logindto.username)
-
-
-
+        expect(employeeRepository.getEmployeeByUsername).toHaveBeenCalledWith(logindto.username)
 
     })
 
 })
-
-

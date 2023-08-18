@@ -18,16 +18,18 @@ class EmployeeController {
     public router: express.Router;
     constructor(private employeeService: EmployeeService) {
         this.router = express.Router();
-        this.router.get("/", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getAllEmployees);
+      this.router.get("/", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getAllEmployees);
         this.router.get("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.getEmployeeByID);
-        this.router.post("/", authenticate, authorize([Role.HR]), this.createAnEmployee);
-        this.router.delete("/:id", authenticate, authorize([Role.HR]), this.deleteEmployee);
+        this.router.post("/", this.createAnEmployee);
+       this.router.delete("/:id", authenticate, authorize([Role.HR]), this.deleteEmployee);
+
         this.router.put("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.updateEmployee);
         this.router.patch("/:id", authenticate, authorize([Role.DEVELOPER, Role.HR, Role.UI]), this.patchEmployee);
         this.router.post("/login", this.loginEmployee);
     }
 
     public getAllEmployees = async (req: RequestWithUser, res: express.Response, next: NextFunction) => {
+        console.log("getting data");
         let page = Number(req.query.page);
         if (!page) {
             page = 1;

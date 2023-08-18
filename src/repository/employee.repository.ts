@@ -12,7 +12,8 @@ class EmployeeRepository {
     const count = await this.employeeRepository.createQueryBuilder().getCount()
     const employeesWithDepartment = await this.employeeRepository.find({
       skip: (pageNumber - 1) * offset,
-      take: offset
+      take: offset,
+      relations: ['address']
     });
     return { employeesWithDepartment, count };
   }

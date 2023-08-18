@@ -11,12 +11,18 @@ import errorMiddleware from "./middleware/error.middleware";
 import { departmentRouter } from "./route/department.route";
 import roleRouter from "./route/role.route";
 import logger from "./logging/winston.log";
+const cors = require('cors');
 
 const { v4: uuidv4 } = require('uuid');
 const server = express();
 server.use(express.json());
 server.use(loggerMiddleware);
-
+const corsOptions = {
+    origin: 'http://localhost:3000',
+  };
+  
+  server.use(cors(corsOptions));
+  
 server.use("/employees", employeeRouter);
 server.use("/departments", departmentRouter);
 server.use("/roles", roleRouter)

@@ -7,8 +7,6 @@ import { Column } from "typeorm";
 import Department from "../entity/department.entity";
 import PatchAddressDto from "./patch-employee-address.dto";
 
-
-
 class PatchEmployeeDto{
 
 @IsOptional()
@@ -19,24 +17,24 @@ name?:string;
 @IsString()
 username?:string;
 
-
-
 @IsOptional()
 @IsNumber()
 experience?:number;
 
 @IsOptional()
 @IsDate()
-joiningDate?:Date;
+joiningDate?:string;
 
 @IsOptional()
 @IsString()
 password?:string;
 
+@IsNotEmpty()
+isActive?:string;
+
 @IsOptional()
 @IsEnum(Role)
 role?:Role;
-
 
 @IsOptional()
 @Column()

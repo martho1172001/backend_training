@@ -23,7 +23,7 @@ describe('Department service tests', () => {
         const mockFunction = jest.fn();
         when(mockFunction).calledWith().mockResolvedValueOnce(mockDepartment);
         departmentRepository.find = mockFunction;
-        const result = await departmentService.getAllDepartment();
+        const result = await departmentService.getAllDepartments();
         expect(result).toEqual(mockDepartment)
     })
     test('test for getDepartmentByID non existent one', async () => {
@@ -85,9 +85,6 @@ describe('Department service tests', () => {
 
         expect(departmentRepository.save).toBeCalledWith(newDepartment);
 
-
     })
-
-
 
 })

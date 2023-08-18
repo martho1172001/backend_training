@@ -42,10 +42,11 @@ class EmployeeService {
     const newEmployee = new Employee();
     newEmployee.name = createEmployeeDTo.name;
     newEmployee.username = createEmployeeDTo.username;
-    newEmployee.joiningDate = new Date(createEmployeeDTo.joiningDate);
+    newEmployee.joiningDate = createEmployeeDTo.joiningDate;
     newEmployee.experience = createEmployeeDTo.experience;
     newEmployee.password = await bcrypt.hash(createEmployeeDTo.password, 10);
     newEmployee.role = createEmployeeDTo.role;
+    newEmployee.isActive = createEmployeeDTo.isActive;
 
     const newAddress = new Address;
     newAddress.address_line_1 = createEmployeeDTo.address.address_line_1;
@@ -68,7 +69,7 @@ class EmployeeService {
     console.log(this.employeeRepository.softRemove(employee));
   }
 
-  updateEmployee(updateEmployeeDTo: UpdateEmployeeDto, updatedEmployee: Employee): Promise<Employee | null> {
+  async updateEmployee(updateEmployeeDTo: UpdateEmployeeDto, updatedEmployee: Employee): Promise<Employee | null> {
 
     updatedEmployee.name = updateEmployeeDTo.name;
     updatedEmployee.username = updateEmployeeDTo.username;
@@ -76,7 +77,11 @@ class EmployeeService {
     updatedEmployee.experience = updateEmployeeDTo.experience;
     updatedEmployee.role = updateEmployeeDTo.role;
     updatedEmployee.updatedAt = new Date();
-
+    if(updateEmployeeDTo.password!='')
+    updatedEmployee.password = await bcrypt.hash(updateEmployeeDTo.password, 10);
+    updatedEmployee.departmentId = updateEmployeeDTo.departmentId;
+    updatedEmployee.isActive = updateEmployeeDTo.isActive;
+    
     updatedEmployee.address.address_line_1 = updateEmployeeDTo.address.address_line_1;
     updatedEmployee.address.address_line_2 = updateEmployeeDTo.address.address_line_2;
     updatedEmployee.address.city = updateEmployeeDTo.address.city;
@@ -100,7 +105,7 @@ class EmployeeService {
       logger.warn(`${logStart} Unsuccessful login: Username not found`);
       throw new HttpException(401, "Invalid login credentials");
     }
-    employee.isActive = true;
+    employee.isActive = "Active";
     await this.employeeRepository.save(employee);
     const result = await bcrypt.compare(loginDto.password, employee.password);
     if (!result) {

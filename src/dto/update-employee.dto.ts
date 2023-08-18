@@ -13,32 +13,30 @@ class UpdateEmployeeDto {
     @IsString()
     username: string;
 
-
-    departmentId: string;
-
+    @IsNotEmpty()
+    departmentId: number;
 
     @IsNotEmpty()
     @IsNumber()
     experience: number;
 
     @IsNotEmpty()
-    @IsDate()
-    joiningDate: Date;
+isActive:string;
 
     @IsNotEmpty()
     @IsString()
+    joiningDate: string;
+
     password: string;
 
     @IsNotEmpty()
     @IsEnum(Role)
     role: Role;
 
-
     @IsNotEmpty()
     @ValidateNested({ each: true })
     @Type(() => CreateAddressDto)
     address: Address;
-
 
 }
 export default UpdateEmployeeDto
